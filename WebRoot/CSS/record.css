@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+#shopping_record{
+	margin-top:20px;
+	margin-bottom:20px;
+	padding:0px 10%;
+	padding-right:150px;
+	
+	
+	
+	
+}
+
+.record_content{
+	padding:0px;
+	background-color:#FFFFF0;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-bottom:20px;
+	width:100%;
+}
+.record_content p a{
+	float:right;
+}
+.record_content p{
+	margin-left:10%;
+	margin-right:20%;
+	color:#C67171;
+	font-weight:bold;
+	
+}
+#payAgain{
+	background-color:#EE3B3B;
+	border:1px none #EE3B3B;
+	color:white;
+	font-family:'微软雅黑';
+	margin-left:10px;
+	font-size:small;
+	font-weight:bold;
+	margin-right:10px;
+	}

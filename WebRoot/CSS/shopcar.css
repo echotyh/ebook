@@ -1,0 +1,91 @@
+@charset "utf-8";
+/* CSS Document */
+#search_ul li{
+	display:inline;
+	padding-left:150px;
+	padding-right:30px;
+	
+	
+}
+#myCar{
+	background-color:#EE3B3B;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+#search_ul{
+	padding:0px;
+	background-color:#C2C2C2;
+	font-size:large;
+	font-weight:bold;
+	color:white;
+	margin-right:30%;
+	margin-bottom:10%;
+}
+#shop_car{
+	padding:0px 10%;
+	font-size:small;
+	font-weight:bold;
+	color:white;
+	margin-bottom:20px;
+	
+	
+}
+#shop_car table{
+	background-color:#EEDFCC;
+	width:90%;
+	
+}
+#shop_car table td {
+	text-align:center;
+}
+#shop_car table td img{
+	float:left;
+	margin-right:5px;
+	
+}
+
+#shop_number{
+	width:40px;
+	height:18px;
+}
+a{
+	text-decoration:none;
+}
+
+.operator{
+	font-size:18px;
+}
+
+.shop_content{
+	background-color:white;
+	color:#C67171;
+}
+#way div{
+     margin:0;
+     text-align:right;
+     color:#C67171;
+   
+	}
+.pre_check div{
+	margin:0;
+	text-align:right;
+	color:#C67171;
+	margin-bottom:20px;
+	}
+.pre_check div button{
+	background-color:#EE3B3B;
+	border:1 px medium white;
+	color:white;
+	font-family:'微软雅黑';
+	font-weight:bolder;
+	font-size:x-large;
+	padding:5px 20px;
+	width:150px;
+	height:50px;
+
+	
+		}
+
+	
+	
+}

@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+#check_out_main{
+	padding-bottom:10%;
+	padding-left:10%;
+	padding-right:10%;
+	padding-top:30px;
+	font-weight:bold;
+	font-size:large;
+	background-color: 	#D1EEEE;
+	margin:20px 10%;
+	color:#C67171;
+	
+}
+#check_out_main button{
+	background-color:#EE3B3B;
+	border:1px none #EE3B3B;
+	color:white;
+	font-family:'微软雅黑';
+	margin-left:10px;
+	font-size:small;
+	font-weight:bold;
+	margin-right:10px;
+	
+
+	}

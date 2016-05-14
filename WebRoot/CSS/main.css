@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	font-family:'微软雅黑';
+}
+#main_head{
+	margin-bottom:0px;
+}
+#user_bar li{
+	display:inline;
+	margin-left:30px;
+	
+}
+
+#user_bar{
+    margin-top:-48px;
+	padding:15px;
+	width:50%;
+    float:right;
+	
+}
+#welcome{
+	width:30%;
+    margin-top:0px;
+	padding-top:10px;
+}
+#user_info{
+	padding:0px 200px 0.5px 200px;
+	font-size:small;
+	font-weight:bold;
+	color:#CDC5BF;
+	background-color: 	#FFF5EE;
+	
+}
+#search_part{
+	background-image:url(../images/logo_1.jpg);
+	background-position:80px 1px;
+	background-repeat:no-repeat;
+	padding-top:40px;
+	padding-left:36%;
+	padding-bottom:45px;
+    
+	
+}
+#search{
+	
+     background-color:#EE3B3B;
+	 padding:5px;
+     width:70%;
+	 
+	
+}
+#search_content{
+	height:30px;
+	width:83%;
+}#search_butt{
+	background-color:#EE3B3B;
+	border:1px none #EE3B3B;
+	color:white;
+	font-family:'微软雅黑';
+	margin-left:10px;
+	font-size:20px;
+	margin-right:10px;
+
+}
+#short_cut{
+	
+	width:68%;
+	font-size:small;
+	font-weight:bold;
+	padding:5px;
+	margin-top:0px;
+	
+}
+#short_cut li{
+	display:inline;
+	color:#CDC5BF;
+	margin-right:10px;
+	
+	
+}
+#show_part{
+	margin-top:10px;
+	height:400px;
+	background-color: #F0FFF0;
+	margin-bottom:20px;
+}
+.chicken_container{
+	padding-left:100px;
+	padding-top:20px;
+	padding-right:100px;
+	padding-bottom:20px;
+	background-color:#F0FFF0;
+	margin-left:80px;
+	margin-right:200px;
+	margin-bottom:20px;
+}
+.chicken_container table{
+	background-color:#F0FFF0;
+	font-weight:bold;
+	color:#C67171;
+	
+}
+
+.buy{
+	border:1px none #F0FFF0;
+	background-color: 	#FF6347;
+	color:white;
+	padding:5px 10px;
+	
+}
+#home_bottom{
+	background-color:#E0EEEE;
+	padding:20px 450px;
+	font-weight:bold;
+	color:#C67171;
+}
+a:visited{
+	color:#6E8B3D;
+}
+a:hover{
+   color:#7CCD7C;
+	
+}
+a{
+	text-decoration:none;
+}
+
+

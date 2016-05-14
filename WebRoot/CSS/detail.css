@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+#product_detail{
+	margin-bottom:20px;
+	
+	margin-top:20px;
+	padding-left:10%;
+}
+#product_detail button{
+	background-color:#EE3B3B;
+	border:1px none #EE3B3B;
+	color:white;
+	font-family:'微软雅黑';
+	margin-left:10px;
+	font-size:small;
+	font-weight:bold;
+	margin-right:10px;
+	padding:5px;
+}
+
+#product_detail table{
+	
+	color:#C67171;
+	font-size:normal;
+	font-weight:bold;
+	background-color:#FFFFF0;
+}
+#price{
+	color:red;
+	font-size:x-large;
+	}
+
+
