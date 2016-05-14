@@ -1,7 +1,6 @@
-package com.vg.module.dao;
+package test;
 
-import com.vg.exception.BaseException;
-import com.vg.util.StringUtil;
+import com.xiaotangbao.ebook.dao.BaseDao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +27,7 @@ public class TblWebpageDao extends BaseDao {
      * @return
      * @throws BaseException
      */
-    public List<Map<String, Object>> getByTitle(String title) throws BaseException {
+    public List<Map<String, Object>> getByTitle(String title) throws Exception {
         if (null == title || "".equals(title)) {
             return null;
         }
@@ -54,7 +53,7 @@ public class TblWebpageDao extends BaseDao {
      * @return  boolean     true:已存在
      * @throws BaseException
      */
-    public boolean checkExistByHash(String hash) throws BaseException {
+    public boolean checkExistByHash(String hash) throws Exception {
         if (null == hash || "".equals(hash)) {
             throw new NullPointerException("hash is null at TblWebpageDao.countByHash()");
         }
