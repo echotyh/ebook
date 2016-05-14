@@ -1,4 +1,6 @@
-package com.vg.module.dao;
+package test;
+
+import com.xiaotangbao.ebook.dao.BaseDao;
 
 /**
  * @author  SunJianwei<327021593@qq.com>
