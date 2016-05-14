@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			
 	  $(".user_pwd").change(function(){
 		  		if($(".user_pwd").attr("value")==""||$(".user_pwd").attr("value")==null){
-  						$("#msg").html("密码不能为空");
+  						$("#msg").html("密码不能为空！！！！！！！");
   				}
 		  	});
 		});
