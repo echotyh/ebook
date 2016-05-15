@@ -158,7 +158,7 @@ public class SqlBuilder {
             if (value instanceof String || value instanceof Number) {
                 sql.append("=?,");
             } else {
-                System.out.println("build sql error:fields' value should be String or Number when update");
+                System.out.println("build sql error:fields' value should be String or Number when insert");
             }
         }
         sql.setLength(sql.length() - 1);
