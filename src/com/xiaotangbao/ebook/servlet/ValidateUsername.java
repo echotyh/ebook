@@ -2,7 +2,6 @@ package com.xiaotangbao.ebook.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,7 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.xiaotangbao.ebook.dao.UserDao;
 
+
+
 public class ValidateUsername extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Destruction of the servlet. <br>
