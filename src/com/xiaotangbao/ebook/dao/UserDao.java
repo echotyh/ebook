@@ -9,6 +9,7 @@ import java.util.Map;
 import org.junit.Test;
 
 import com.xiaotangbao.ebook.entity.User;
+import com.xiaotangbao.ebook.util.MD5tool;
 
 
 public class UserDao extends BaseDao {
@@ -45,7 +46,7 @@ public class UserDao extends BaseDao {
 	        Map<String, Object> fields = new HashMap<>();
 	        
 	        fields.put("username", name);
-	        fields.put("password", password);
+	        fields.put("password", MD5tool.MD5(password));
 	        fields.put("status", status);
 	        fields.put("gender", gender);
 	        fields.put("birth", birth);
@@ -60,7 +61,7 @@ public class UserDao extends BaseDao {
 	}
 	@Test
 	public void testRegister() throws Exception{
-		int i = register("fubiqi","fubiqi","18844195315","F","1","1298731@qq.com","1994-2-18");
+		int i = register("fubiqi1","fubiqi2","18844195315","F","1","1298731@qq.com","1994-2-18");
 	    System.out.println("i  "+i);
 	}
 	//根据用户名和密码查找一条数据
@@ -68,7 +69,7 @@ public class UserDao extends BaseDao {
 		User user = null;
 		
 		 Map<String, Object> conds = new HashMap<String, Object>();
-	        conds.put("username", userName);
+	        conds.put("username", MD5tool.MD5(password));
 	        conds.put("password", password);
 	        List<String> fields = new ArrayList<String>();
 	        

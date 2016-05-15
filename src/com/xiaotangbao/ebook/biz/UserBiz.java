@@ -1,11 +1,23 @@
 package com.xiaotangbao.ebook.biz;
 
 
+import java.util.List;
+
 import com.xiaotangbao.ebook.dao.UserDao;
 import com.xiaotangbao.ebook.entity.User;
 
 
 public class UserBiz {
+	//验证名字是否在数据库中存在
+	public boolean onlyname(String name) throws Exception{
+		UserDao userdao = new UserDao();
+		List<String> names = userdao.getAllNames();
+		if(names.contains(name)){
+			return false;
+		}else{
+		return true;
+		}
+	}
 	
 	public User login(String userName,String userPwd) throws Exception{
 		

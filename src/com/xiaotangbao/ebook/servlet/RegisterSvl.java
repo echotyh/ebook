@@ -1,6 +1,8 @@
 package com.xiaotangbao.ebook.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mysql.jdbc.log.Log;
 import com.xiaotangbao.ebook.biz.UserBiz;
+import com.xiaotangbao.ebook.dao.UserDao;
 import com.xiaotangbao.ebook.entity.User;
 
 public class RegisterSvl extends HttpServlet {
@@ -43,7 +46,19 @@ public class RegisterSvl extends HttpServlet {
 		      			user_birth, user_phone, user_email, 0);
 		          
 		          UserBiz userbiz=new UserBiz();
+		          //用户名为空时拒绝加入
 		          try {
+					if(userbiz.onlyname(user_name)){
+						request.setAttribute("msg", "用户名已经存在，请重新输入！");
+						request.getRequestDispatcher("main/register.jsp").forward(request, response);
+					  }
+		          }catch(Exception e2){
+		        	  request.setAttribute("msg"," 哦啊，服务器出去卖（鸡汤）了~最多刷新7次即可召唤它回来~" );
+					  request.getRequestDispatcher("main/register.jsp").forward(request, response);
+		        	  
+		          }
+		          
+		          try{
 					if(userbiz.register(user)>0){
 						  request.setAttribute("msg", "恭喜您注册成功");
 						  request.getRequestDispatcher("main/message.jsp").forward(request, response);
