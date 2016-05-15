@@ -24,6 +24,19 @@
 </head>
 
 <body>
-This is my JSP page. <br>
+    <form method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>书名</td>
+                <td>
+                    <input type="text" placeholder="请在这里输入书名" autofocus required />
+                </td>
+                <td></td>
+            </tr>
+
+
+        </table>
+
+    </form>
 </body>
 </html>
