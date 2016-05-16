@@ -43,8 +43,17 @@ public class UserBiz {
 		String email = user.getEmail();
 		String birth = user.getBirth();
 		 UserDao userdao = new UserDao();
-		 int i = userdao.register(name, password, phone, gender, status, email, birth);
-		return i;
+		 int result;
+		 if(name == null || name =="" || password == null || password == "" || phone ==null ||
+				 phone == "" || email == null || email==""){
+			 System.out.println("请输入非空的字段");
+			 result = 0;
+			 
+		 }else{
+			 result = userdao.register(name, password, phone, gender, status, email, birth);
+		 }
+		
+		return result;
 	}
 
 }
