@@ -29,13 +29,75 @@
             <tr>
                 <td>书名</td>
                 <td>
-                    <input type="text" placeholder="请在这里输入书名" autofocus required />
+                    <input type="text" name="name" placeholder="请在这里输入书名" autofocus required />
                 </td>
                 <td></td>
             </tr>
-
-
+            <tr>
+                <td>系列</td>
+                <td>
+                    <input type="text" name="series" placeholder="请在这里输入所属系列"  required />
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>出版社</td>
+                <td>
+                    <input type="text" name="publishCompany" placeholder="请在这里输入出版社"  required />
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>出版日期</td>
+                <td>
+                    <input type="date" name="publishDate" required />
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>类别</td>
+                <td>
+                    <select name="type1">
+                        <option value="id1">测试大类别1</option>
+                        <option value="id2">测试大类别2</option>
+                    </select>
+                    <select name="type2">
+                        <option value="id1">测试小类别1</option>
+                        <option value="id2">测试小类别2</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>展示图片</td>
+                <td>
+                    <input type="file" name="picture" required />
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>简介</td>
+                <td>
+                    <textarea name="introduction"></textarea>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>价格</td>
+                <td>
+                    <input type="number" name="price" required />
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>文件</td>
+                <td>
+                    <input type="file" name="content" required />
+                </td>
+                <td></td>
+            </tr>
         </table>
+        <input type="submit" value="上传" />
 
     </form>
 </body>
