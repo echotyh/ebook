@@ -34,7 +34,13 @@ public class RegisterSvl extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		//如果这样还不行的话，
+		
+		
 		          String user_name=request.getParameter("user_name");
+		// 把乱码的变量重新转码,cong iso-8859-1  =>  utf-8
+		//user_name = new String(user_name.getBytes("iso-8859-1"), "utf-8");
 		          String user_pwd=request.getParameter("user_pwd");
 		          String user_phone=request.getParameter("user_phone");
 		          String user_gender = request.getParameter("user_gender");
@@ -45,32 +51,20 @@ public class RegisterSvl extends HttpServlet {
 		          User user = new User(user_name, user_pwd, user_status, user_gender,
 		      			user_birth, user_phone, user_email, 0);
 		          
-		          UserBiz userbiz=new UserBiz();
-		          //用户名为空时拒绝加入
-		          try {
-					if(userbiz.onlyname(user_name)){
-						request.setAttribute("msg", "用户名已经存在，请重新输入！");
-						request.getRequestDispatcher("main/register.jsp").forward(request, response);
-					  }
-		          }catch(Exception e2){
-		        	  request.setAttribute("msg"," 哦啊，服务器出去卖（鸡汤）了~最多刷新7次即可召唤它回来~" );
-					  request.getRequestDispatcher("main/register.jsp").forward(request, response);
-		        	  
-		          }
-		          
+		          UserBiz userbiz = new UserBiz();
 		          try{
 					if(userbiz.register(user)>0){
 						  request.setAttribute("msg", "恭喜您注册成功");
-						  request.getRequestDispatcher("main/message.jsp").forward(request, response);
+						  request.getRequestDispatcher("/main/message.jsp").forward(request, response);
 					  }else{
 						   request.setAttribute("msg", "哦啊，服务器出去卖（鸡汤）了~最多刷新7次即可召唤它回来!");
-						   request.getRequestDispatcher("main/register.jsp").forward(request, response);
+						   request.getRequestDispatcher("/main/register.jsp").forward(request, response);
 					  }
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 					request.setAttribute("msg"," 哦啊，服务器出去卖（鸡汤）了~最多刷新7次即可召唤它回来~" );
-					request.getRequestDispatcher("main/register.jsp").forward(request, response);
+					request.getRequestDispatcher("/main/register.jsp").forward(request, response);
 				}
 		          
 	}
