@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -187,7 +188,7 @@
                         <input type="button" value="登  录" class="re"
                                onclick="window.location.href='<%=basePath%>main/login.jsp'"/></td>
                     <td>
-                        <input type="submit" class="lo" vlaue="注 册" />
+                        <input type="submit" class="lo" value="注 册" />
                     </td>
                 </tr>
             </table>
