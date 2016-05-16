@@ -144,11 +144,12 @@
                         <div id="message_phone"></div>
                     </td>
                 </tr>
+                
                 <tr>
-                    <td>性  别：</td>
-                    <td><input type="radio" name="user_gender" value="F" checked="checked"/>女<input type="radio"
-                                                                                                    name="user_gender"
-                                                                                                    value="M"/>男
+                    <td>电子邮箱:</td>
+                    <td><input type="email" name="user_email" required/></td>
+                     <td>
+                        <div id="message_email"></div>
                     </td>
                 </tr>
                 <tr>
@@ -158,22 +159,25 @@
                         <div id="message_birth"></div>
                     </td>
                 </tr>
-                <tr>
+                 <tr>
                     <td>身  份：</td>
                     <td>
                         <input type="radio" name="user_status" value="0" checked="checked"/>读者<input type="radio"
                                                                                                      name="user_status"
-                                                                                                     value="1"/>作者
+                                                                                                     value="1"/>作者               
                     </td>
                 </tr>
-
                 <tr>
-                    <td>电子邮箱:</td>
-                    <td><input type="email" name="user_email" required/></td>
-                     <td>
-                        <div id="message_email"></div>
+                    <td>性  别：</td>
+                    <td><input type="radio" name="user_gender" value="F" checked="checked"/>女<input type="radio"
+                                                                                                    name="user_gender"
+                                                                                                    value="M"/>男
                     </td>
                 </tr>
+                
+               
+
+                
 
                 <tr>
                     <td colspan="2"><span><c:if test="${msg != null}">${msg} </c:if></span></td>
