@@ -69,8 +69,8 @@ public class UserDao extends BaseDao {
 		User user = null;
 		
 		 Map<String, Object> conds = new HashMap<String, Object>();
-	        conds.put("username", MD5tool.MD5(password));
-	        conds.put("password", password);
+	        conds.put("username", userName);
+	        conds.put("password", MD5tool.MD5(password));
 	        List<String> fields = new ArrayList<String>();
 	        
 	        fields.add("gender");
