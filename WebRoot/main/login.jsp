@@ -22,21 +22,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   <script type="text/javascript">
   $(function(){
-	  $(".user_name").change(function(){
-  				if($(".user_name").attr("value")==""||$(".user_name").attr("value")==null){
+	  $("input[name='user_name']").change(function(){
+  				if($(this).val()==""||$(this).val()==null){
   						$("#msg").html("用户名不能为空");
   				}
   				
   			});
   			
-	  $(".user_pwd").change(function(){
-		  		if($(".user_pwd").attr("value")==""||$(".user_pwd").attr("value")==null){
+	  $("input[name='user_pwd']").change(function(){
+		  		if($(this).val()==""||$(this).val()==null){
   						$("#msg").html("密码不能为空！！！！！！！");
   				}
 		  	});
 		});
   function _checkAll(){
-	  if($(".user_pwd").attr("value")==""||$(".user_pwd").attr("value")||$(".user_name").attr("value")==""||$(".user_name").attr("value")==null){
+	  if($("input[name='user_pwd']").val()==""||$("input[name='user_pwd']").val()==null||$("input[name='user_name']").val()==""||$("input[name='user_name']").val()==null){
 		  return false; 
 	  }else{
 		  return true;
