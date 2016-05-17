@@ -3,6 +3,7 @@ package com.xiaotangbao.ebook.entity;
 import java.util.Date;
 
 public class User {
+	private int    userid;
 	private String name;
 	private String password;
 	private String status;//顾客身份
@@ -25,6 +26,16 @@ public class User {
 		this.email = email;
 		this.expenditure = expenditure;
 	}
+
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
 	public String getName() {
 		return name;
 	}
