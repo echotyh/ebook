@@ -64,12 +64,18 @@ public class BookBiz {
             conds.put("conmmentnum", 0);
             conds.put("averagegrade", 0);
             long bookId = bookDao.insert(conds, null, false);
+            if (bookId <= 0) {
+                bookDao.rollback();
+                //TODO 清理连个临时文件
+                return -1;
+            }
             book.setBookid((int) bookId);
             File picture = new File(rootRealPath + "/" + "book-images/" + bookId + ".png");
             boolean movedPicture = book.getPicture().renameTo(picture);
             if (!movedPicture) {
                 bookDao.rollback();
                 book.getPicture().delete();
+                //TODO 清理连个临时文件
                 return -1;
             }
             File content = new File(rootRealPath + "/WEB-INF/pdf/" + bookId + ".pdf");
