@@ -34,6 +34,12 @@
     <servlet-name>UploadBookSvl</servlet-name>
     <servlet-class>com.xiaotangbao.ebook.servlet.UploadBookSvl</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AllBookSvl</servlet-name>
+    <servlet-class>com.xiaotangbao.ebook.servlet.AllBookSvl</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -51,6 +57,10 @@
   <servlet-mapping>
     <servlet-name>UploadBookSvl</servlet-name>
     <url-pattern>/user/UploadBookSvl</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AllBookSvl</servlet-name>
+    <url-pattern>/servlet/AllBookSvl</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
