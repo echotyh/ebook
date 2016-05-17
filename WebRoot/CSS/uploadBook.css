@@ -4,11 +4,12 @@
 }
 
 .wrapper {
-	 margin-top:13%;
+	 margin-top:10%;
 	 background-image:url(../images/logo_1.jpg);
 	 background-repeat:no-repeat;
 	 padding:0px 0%;
-	 background-position:10% 0;
+	 background-position:5% 0;
+	 background-attachment:scoll;
 	 
     border: 0;
     width: 100%;
