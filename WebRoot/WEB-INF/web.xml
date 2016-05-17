@@ -34,6 +34,10 @@
     <servlet-name>UploadBookSvl</servlet-name>
     <servlet-class>com.xiaotangbao.ebook.servlet.UploadBookSvl</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>GetAllBookTypeSvl</servlet-name>
+    <servlet-class>com.xiaotangbao.ebook.servlet.GetAllBookTypeSvl</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -51,6 +55,10 @@
   <servlet-mapping>
     <servlet-name>UploadBookSvl</servlet-name>
     <url-pattern>/user/UploadBookSvl</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetAllBookTypeSvl</servlet-name>
+    <url-pattern>/servlet/GetAllBookTypeSvl</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
