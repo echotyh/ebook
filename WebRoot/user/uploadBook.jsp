@@ -111,6 +111,7 @@
         }
         //注册事件
         $(function() {
+            // 提交事件
             $("#submit").click(function(e) {
                 e.preventDefault();
                 if (!submitCheck()) {
@@ -124,6 +125,7 @@
                     dataType: "json",
                     success: function(data) {
                         console.log(data);
+                        alert(data.errmsg);
                     },
                     error: function (data) {
                         console.log(data.responseText);
@@ -131,6 +133,7 @@
                 });
             });
 
+            // 自动填充图书系列事件
             $("input[name=name]").keyup(function() {
                 var series = $("input[name=series]");
                 var seriesValue = this.value;
@@ -144,6 +147,7 @@
                     series.val(this.value);
                 }
             });
+
         });
 
     </script>
@@ -186,6 +190,13 @@
                 <tr>
                     <td>类别</td>
                     <td>
+                        <script type="text/javascript">
+                            // 加载 图书类型信息
+                            console.log("${pageContext}");
+                            /*$.ajax({
+                                url: '${requestScope.contextPath}'
+                            });*/
+                        </script>
                         <select name="type1">
                             <option value="id1">测试大类别1</option>
                             <option value="id2">测试大类别2</option>
