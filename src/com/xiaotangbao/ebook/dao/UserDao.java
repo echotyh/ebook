@@ -86,8 +86,7 @@ public class UserDao extends BaseDao {
     			user.setGender((String) row.get("gender"));
     			user.setStatus((String) row.get("status"));
     			user.setEmail((String) row.get("email"));
-    			BigDecimal bd = (BigDecimal)row.get("Expenditure");
-    			user.setExpenditure(bd.doubleValue());
+    			user.setExpenditure((int) row.get("Expenditure"));
     			//user.setExpenditure((double) row.get("expenditure"));
     			user.setName(userName);
     			user.setPassword(password);

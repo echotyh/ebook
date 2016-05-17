@@ -10,11 +10,11 @@ public class User {
 	private String birth;
 	private String phone;
 	private String email;
-	private double expenditure;
+	private int expenditure;
 	public User(){}
 	
 	public User(String name, String password, String status, String gender,
-			String birth, String phone, String email, double expenditure) {
+			String birth, String phone, String email, int expenditure) {
 		super();
 		this.name = name;
 		this.password = password;
@@ -67,10 +67,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public double getExpenditure() {
+	public int getExpenditure() {
 		return expenditure;
 	}
-	public void setExpenditure(double expenditure) {
+	public void setExpenditure(int expenditure) {
 		this.expenditure = expenditure;
 	}
 	@Override

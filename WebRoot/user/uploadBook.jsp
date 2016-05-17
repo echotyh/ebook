@@ -19,7 +19,7 @@
     <meta http-equiv="expires" content="0">
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
-    <link rel="stylesheet" type="text/css" href="<%=path%>/CSS/uploadBook.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/CSS/uploadBook.css">
 
     <script type="text/javascript" src="${pageContext.request.contextPath }/script/jquery-2.2.3.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/script/jquery.form.js"></script>
@@ -156,7 +156,7 @@
 </head>
 
 <body>
-    <div class="wrapper">
+    <div  class="wrapper">
         <form id="dataForm" onsubmit="return submitCheck();">
             <table>
                 <tr>

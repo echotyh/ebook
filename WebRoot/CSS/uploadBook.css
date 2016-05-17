@@ -2,7 +2,14 @@
     margin:0;
     padding:0;
 }
+
 .wrapper {
+	 margin-top:13%;
+	 background-image:url(../images/logo_1.jpg);
+	 background-repeat:no-repeat;
+	 padding:0px 0%;
+	 background-position:10% 0;
+	 
     border: 0;
     width: 100%;
     margin: 3% auto;
@@ -11,6 +18,7 @@
     font-weight: bold;
     color: #C67171;
 }
+
 table {
     margin: 0 auto;
     border:0;
