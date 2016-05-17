@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" href="<%=basePath%>CSS/login.css"/>
-	<script src="<%=basePath%>js/jquery-1.8.3.js"></script>
+	<script src="<%=basePath%>script/jquery-2.2.3.js"></script>
   </head>
   <script type="text/javascript">
   $(function(){
