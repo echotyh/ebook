@@ -253,7 +253,7 @@ public class BaseDao {
 
     private synchronized void init() {
         MySQLDBSelector selector = new MySQLDBSelector();
-        String[] hostport = selector.select(false, MySQLDBSelector.RANDOM);
+        String[] hostport = selector.select(true, MySQLDBSelector.RANDOM);
         dbUtil.init(hostport[0], hostport[1], db);
     }
 
