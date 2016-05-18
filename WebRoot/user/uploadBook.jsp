@@ -114,14 +114,34 @@
             // 提交事件
             $("#submit").click(function(e) {
                 e.preventDefault();
-                if (!submitCheck()) {
+                /*if (!submitCheck()) {
                     return false;
-                }
-                // 点击提交
-                $(this).ajaxSubmit({
+                }*/
+
+                // 提交
+                var formData = new FormData(document.getElementById("dataForm"));
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', "<%=basePath%>user/UploadBookSvl");
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var responseData = JSON.parse(xhr.responseText);
+                        if (responseData.errno == 0) {
+                            // 成功
+                            alert("上传成功");
+                        } else {
+                            alert(responseData.errmsg);
+                        }
+                    }
+                };
+                xhr.send(formData);
+
+                /*$(this).ajaxSubmit({
                     url: "<%=basePath%>user/UploadBookSvl",
-                    type: "post",
-                    contentType: "multipart/form-data",
+                    type: "POST",
+                    //enctype: "multipart/form-data",
+                    data: formData,
+                    //contentType: "multipart/form-data",
+                    contentType: false,
                     dataType: "json",
                     success: function(data) {
                         console.log(data);
@@ -130,7 +150,7 @@
                     error: function (data) {
                         console.log(data.responseText);
                     }
-                });
+                });*/
             });
 
             // 自动填充图书系列事件
@@ -148,6 +168,20 @@
                 }
             });
 
+            // 注册图书类型切换事件
+            $("#type1").change(function() {
+                var type1 = $(this).val();
+                var type2 = window.data.types[type1];
+                var type2Ele = $("#type2");
+                type2Ele.html("");
+                for (var i = 0; i < type2.length; i++) {
+                    var type2Name = type2[i][0];
+                    var typeid = type2[i][1];
+                    var nodeHtml = "<option value='" + typeid + "'>" + type2Name + "</option>";
+                    type2Ele.append(nodeHtml);
+                }
+            });
+
         });
 
     </script>
@@ -157,7 +191,7 @@
 
 <body>
     <div  class="wrapper">
-        <form id="dataForm" onsubmit="return submitCheck();">
+        <form id="dataForm" enctype="multipart/form-data" onsubmit="return submitCheck();">
             <table>
                 <tr>
                     <td>书名</td>
@@ -190,21 +224,39 @@
                 <tr>
                     <td>类别</td>
                     <td>
+                        <select id="type1" name="type1"></select>
+                        <select id="type2" name="type2"></select>
                         <script type="text/javascript">
                             // 加载 图书类型信息
-                            console.log("${pageContext}");
-                            /*$.ajax({
-                                url: '${requestScope.contextPath}'
-                            });*/
+                            $.ajax({
+                                type: "get",
+                                url: "${pageContext.request.contextPath}/servlet/GetAllBookTypeSvl",
+                                async: false,
+                                dataType: "json",
+                                success: function(response) {
+                                    window.data['types'] = response;
+                                    var type1Ele = $("#type1");
+                                    // type1
+                                    for (var type1 in response) {
+                                        var nodeHtml = "<option value='" + type1 + "'>" + type1 + "</option>";
+                                        type1Ele.append(nodeHtml);
+                                    }
+
+                                    type1Ele[0].firstChild.selected = true;
+                                    var firstType1Name = type1Ele[0].firstChild.value;
+                                    // type2
+                                    var type2Ele = $("#type2");
+                                    var type2List = response[firstType1Name];
+                                    for (var i = 0; i < type2List.length; i++) {
+                                        var type2 = type2List[i][0];
+                                        var typeid = type2List[i][1];
+                                        var nodeHtml = "<option value='" + typeid + "'>" + type2 + "</option>";
+                                        type2Ele.append(nodeHtml);
+                                    }
+
+                                }
+                            });
                         </script>
-                        <select name="type1">
-                            <option value="id1">测试大类别1</option>
-                            <option value="id2">测试大类别2</option>
-                        </select>
-                        <select name="type2">
-                            <option value="id1">测试小类别1</option>
-                            <option value="id2">测试小类别2</option>
-                        </select>
                     </td>
                     <td><div class="errmsg" name="msg_type"></div></td>
                 </tr>

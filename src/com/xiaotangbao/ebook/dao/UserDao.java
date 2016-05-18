@@ -72,7 +72,7 @@ public class UserDao extends BaseDao {
 	        conds.put("username", userName);
 	        conds.put("password", MD5tool.MD5(password));
 	        List<String> fields = new ArrayList<String>();
-	        
+	        fields.add("userid");
 	        fields.add("gender");
 	        fields.add("status");
 	        fields.add("birth");
@@ -83,6 +83,7 @@ public class UserDao extends BaseDao {
 	        if (resultList.size()!=0){
 	        	user = new User();
 	        for (Map<String, Object> row : resultList) {
+				user.setUserid((int) row.get("userid"));
     			user.setGender((String) row.get("gender"));
     			user.setStatus((String) row.get("status"));
     			user.setEmail((String) row.get("email"));
