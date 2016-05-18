@@ -32,6 +32,8 @@ public class UploadBookSvl extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         Map<String, Object> result = new HashMap<String, Object>();
         Map<String, Object> params = null;
@@ -67,12 +69,13 @@ public class UploadBookSvl extends HttpServlet {
                 result.put("errmsg", "成功！");
                 result.put("bookId", bookId);
                 out.print(JSONObject.toJSON(result));
+                return;
             }
             throw new Exception("失败");
         } catch (Exception e) {
             result.put("errno", 1);
             result.put("errmsg", e.getMessage());
-            out.print(JSONObject.toJSON(request));
+            out.print(JSONObject.toJSON(result));
         } finally {
             out.flush();
             out.close();

@@ -29,7 +29,7 @@ public class BookSeriesBiz {
         conds.put("name", series);
         List<String> fields = new ArrayList<String>();
         fields.add("bookseriesid");
-        fields.add("author");
+        fields.add("authorname");
         List<Map<String, Object>> list = dao.getByConds(conds, fields, null);
         if (!list.isEmpty()) {
             Map<String, Object> row = list.get(0);

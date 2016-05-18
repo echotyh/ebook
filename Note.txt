@@ -9,7 +9,7 @@
         个字段取值最大长度判断
 
 TODO:
-发现登录bug：Session中存的用户userid为0
+发现登录bug：Session中存的用户userid为0    Done
 
 
 

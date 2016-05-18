@@ -54,19 +54,21 @@ public class BookBiz {
             conds.put("bookname", book.getBookname());
             conds.put("authorid", book.getAuthorid());
             conds.put("publishdate", book.getPublishdate());
-            conds.put("pulishcompany", book.getPublishcompany());
+            conds.put("publishcompany", book.getPublishcompany());
             conds.put("typeid", book.getTypeid());
             conds.put("introduction", book.getIntroduction());
             conds.put("price", book.getPrice());
             conds.put("checked", "n");
             conds.put("saled", "n");
             conds.put("discount", 10);
-            conds.put("conmmentnum", 0);
+            conds.put("commentnum", 0);
             conds.put("averagegrade", 0);
             long bookId = bookDao.insert(conds, null, false);
             if (bookId <= 0) {
                 bookDao.rollback();
-                //TODO 清理连个临时文件
+                //清理连个临时文件
+                book.getPicture().delete();
+                book.getContent().delete();
                 return -1;
             }
             book.setBookid((int) bookId);
@@ -74,8 +76,9 @@ public class BookBiz {
             boolean movedPicture = book.getPicture().renameTo(picture);
             if (!movedPicture) {
                 bookDao.rollback();
+                //清理连个临时文件
                 book.getPicture().delete();
-                //TODO 清理连个临时文件
+                book.getContent().delete();
                 return -1;
             }
             File content = new File(rootRealPath + "/WEB-INF/pdf/" + bookId + ".pdf");
