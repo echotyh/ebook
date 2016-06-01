@@ -19,6 +19,8 @@ import java.util.Map;
  */
 public class BookBiz {
 
+    public static final int READ_MAX_FREE_PAGE = 30;    // 免费试读的最大页数
+
     /**
      *
      * @return 不为null 格式：
@@ -95,5 +97,19 @@ public class BookBiz {
         } finally {
             bookDao.close();
         }
+    }
+
+    /**
+     * 根据图书id获取其File对象
+     * @param   id
+     * @param   rootRealPath
+     * @return  不存在返回null
+     */
+    public File getBookById(int id, String rootRealPath) {
+        File file = new File(rootRealPath + "/WEB-INF/pdf/" + id + ".pdf");
+        if (!file.exists()) {
+            return null;
+        }
+        return file;
     }
 }
