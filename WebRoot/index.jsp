@@ -4,7 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
   <head>
       <base href="<%=basePath%>">
@@ -20,13 +20,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       -->
 
       <script type="text/javascript">
-          window.loginUser = "${sessionScope.user.name}";
-          console.log(window.loginUser);
+          window.location.href = "<%=basePath%>home";
       </script>
 
   </head>
   
   <body>
-    This is my JSP page. <br>
   </body>
 </html>

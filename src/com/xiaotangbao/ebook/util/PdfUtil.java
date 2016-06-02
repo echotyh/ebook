@@ -29,7 +29,7 @@ public class PdfUtil {
         PDDocument document = PDDocument.load(file);
         try {
             PDFRenderer pdfRenderer = new PDFRenderer(document);
-            BufferedImage image = pdfRenderer.renderImageWithDPI(page - 1, 300, ImageType.RGB);
+            BufferedImage image = pdfRenderer.renderImageWithDPI(page - 1, 100, ImageType.RGB);
             return image;
         } catch (Exception e) {
 
