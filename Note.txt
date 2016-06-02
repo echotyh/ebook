@@ -19,3 +19,7 @@
 
 首页：
     查询出图书数据，按评分、发布时间、价格降序排列。
+
+TODO:
+/servlet/GetBookByGrade
+/servlet/BookDetail?book=bookid

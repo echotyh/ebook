@@ -25,5 +25,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     This is my test page. <br>
     <img src="http://localhost:8080/ebook/user/ReadBookSvl?book=11"/>
+
+
+
+
+
+
   </body>
 </html>
