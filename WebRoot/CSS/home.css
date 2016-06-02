@@ -1,0 +1,96 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+a:hover {
+    color: #C67171;
+}
+
+.wrapper {
+    width:1000px;
+    margin: 3% auto;
+    font-family: "微软雅黑", "Times New Roman";
+    font-size: 16px;
+    font-weight: bold;
+}
+.module_title {
+    width: 100%;
+    height: 40px;
+    border-bottom: 3px solid #C67171;
+    color: #C67171;
+    font-size: 25px;
+}
+.moreLink {
+    margin-top: 15px;
+    line-height: 20px;
+    font-size: 16px;
+    float:right;
+}
+.book_box {
+    display: inline-block;
+    margin:15px;
+    width: 300px;
+    height: 210px;
+    overflow: hidden;
+}
+.cover_box {
+    width: 140px;
+    height:210px;
+    padding: 5px;
+    overflow: hidden;
+    float: left;
+}
+.cover_box img {
+    margin: 0px 10px;
+    width: 120px;
+    height:200px;
+    max-width: 120px;
+    max-height: 200px;
+    box-shadow: 0 0 10px #4d4d4f;
+}
+.info {
+    padding-left: 20px;
+    font-size: 14px;
+}
+.book_name {
+    margin-top: 8px;
+    height: 32px;
+    font-weight: bolder;
+    line-height: 16px;
+    overflow: hidden;
+}
+.book_author {
+    font-size: 12px;
+    margin: 2px;
+    color: #666;
+    overflow: hidden;
+}
+.book_grade {
+    font-size: 10px;
+    margin: 2px;
+    color: #666;
+}
+.book_price {
+    color: #ed3e01;
+    font-size: 10px;
+    margin: 2px;
+}
+.origin_price {
+    padding-left: 4px;
+    border-left: 1px solid grey;
+    color: #999;
+    text-decoration: line-through;
+}
+.book_introduction {
+    height:106px;
+    font-size: 12px;
+    color: #666;
+    overflow: hidden;
+}

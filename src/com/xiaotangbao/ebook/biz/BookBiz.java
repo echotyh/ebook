@@ -3,6 +3,9 @@ package com.xiaotangbao.ebook.biz;
 import com.xiaotangbao.ebook.dao.BookDao;
 import com.xiaotangbao.ebook.dao.BookTypeDao;
 import com.xiaotangbao.ebook.entity.Book;
+import com.xiaotangbao.ebook.util.DBConfig;
+import com.xiaotangbao.ebook.util.DBUtil;
+import org.junit.Test;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -112,4 +115,72 @@ public class BookBiz {
         }
         return file;
     }
+
+    /**
+     * 查询图书信息，按发布时间降序
+     *
+     * @return
+     */
+    public List<Map<String, Object>> getByTimeDesc(int offset, int limit) {
+        String sql = "SELECT * FROM book b,bookseries s,booktype t,user u " +
+                "WHERE b.seriesid=s.bookseriesid AND b.authorid=u.userid AND b.typeid=t.typeid AND b.checked='y' AND b.saled='y'" +
+                " ORDER BY b.publishdate DESC";
+        if (offset < 0) {
+            offset = 0;
+        }
+        if (limit > 0) {
+            sql += " LIMIT " + offset + "," + limit;
+        }
+        DBUtil dbUtil = new DBUtil();
+        dbUtil.init(DBConfig.masterHost[0], "13306", "ebook");
+        List<Map<String, Object>> bookList = dbUtil.query(sql);
+        return bookList;
+    }
+
+    /**
+     * 查询图书信息，按价格降序
+     *
+     * @param offset
+     * @param limit
+     * @return
+     */
+    public List<Map<String, Object>> getByPriceDesc(int offset, int limit) {
+        String sql = "SELECT * FROM book b,bookseries s,booktype t,user u " +
+                "WHERE b.seriesid=s.bookseriesid AND b.authorid=u.userid AND b.typeid=t.typeid AND b.checked='y' AND b.saled='y'" +
+                " ORDER BY b.price DESC";
+        if (offset < 0) {
+            offset = 0;
+        }
+        if (limit > 0) {
+            sql += " LIMIT " + offset + "," + limit;
+        }
+        DBUtil dbUtil = new DBUtil();
+        dbUtil.init(DBConfig.masterHost[0], "13306", "ebook");
+        List<Map<String, Object>> bookList = dbUtil.query(sql);
+        return bookList;
+    }
+
+    /**
+     * 查询图书信息，按评分降序
+     *
+     * @param offset
+     * @param limit
+     * @return
+     */
+    public List<Map<String, Object>> getByGradeDesc(int offset, int limit) {
+        String sql = "SELECT * FROM book b,bookseries s,booktype t,user u " +
+                "WHERE b.seriesid=s.bookseriesid AND b.authorid=u.userid AND b.typeid=t.typeid AND b.checked='y' AND b.saled='y'" +
+                " ORDER BY b.price DESC";
+        if (offset < 0) {
+            offset = 0;
+        }
+        if (limit > 0) {
+            sql += " LIMIT " + offset + "," + limit;
+        }
+        DBUtil dbUtil = new DBUtil();
+        dbUtil.init(DBConfig.masterHost[0], "13306", "ebook");
+        List<Map<String, Object>> bookList = dbUtil.query(sql);
+        return bookList;
+    }
+
 }
