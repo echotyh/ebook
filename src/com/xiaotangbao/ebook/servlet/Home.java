@@ -1,21 +1,20 @@
 package com.xiaotangbao.ebook.servlet;
 
 import com.xiaotangbao.ebook.biz.BookBiz;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
 /**
- * @author SunJianwei<327021593@qq.com>
- * @date 16-6-2 13:19
+ * 首页
+ *
+ * @author  SunJianwei<327021593@qq.com>
+ * @date    16-6-2 13:19
  */
 @WebServlet(name = "Home", urlPatterns = "/home")
 public class Home extends HttpServlet {
