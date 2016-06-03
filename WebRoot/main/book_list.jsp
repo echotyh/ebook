@@ -23,6 +23,10 @@
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/home.css">
+    <script type="text/javascript">
+        window.page     = ${requestScope.queryParams.page};
+        window.pageSize = ${requestScope.queryParams.pageSize};
+    </script>
 
 </head>
 
@@ -31,7 +35,7 @@
 
 <div class="wrapper">
     <div class="module_title">   <!-- 模块头 -->
-        好评榜 <a class="moreLink" href="${pageContext.request.contextPath}/servlet/GetBookByGrade">查看更多</a>
+        ${requestScope.title}
     </div>
     <div class="module_body">   <!-- 模块内容 -->
         <c:forEach items="${requestScope.books}" var="item" varStatus="status">
@@ -66,6 +70,17 @@
             </div>
         </c:forEach>
     </div>
+
+    <!-- 分页 -->
+    <div>
+        <span style="margin-right: 30px;"><a href="${pageContext.request.contextPath}">回首页</a></span>
+        <c:if test="${requestScope.queryParams.page gt 1}">
+            <span style="margin-right: 30px;"><a href="${requestScope.url}?page=${requestScope.queryParams.page - 1}&pageSize=${requestScope.queryParams.pageSize}">上一页</a></span>
+        </c:if>
+        <span style="margin-right: 30px;"><a href="${requestScope.url}?page=${requestScope.queryParams.page + 1}&pageSize=${requestScope.queryParams.pageSize}">下一页</a></span>
+    </div>
+
+
 </div>
 
 

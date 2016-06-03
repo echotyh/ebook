@@ -60,6 +60,7 @@ public class GetBookByGrade extends HttpServlet {
             queryParams.put("pageSize", pageSize);
             request.setAttribute("queryParams", queryParams);
             request.setAttribute("title", "好评榜");
+            request.setAttribute("url", request.getContextPath() + "/servlet/GetBookByGrade");
             request.getRequestDispatcher("/main/book_list.jsp").forward(request, response);
         } catch (NumberFormatException e) {
             // 参数不是整数

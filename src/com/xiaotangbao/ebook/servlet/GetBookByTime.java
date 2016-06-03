@@ -60,6 +60,7 @@ public class GetBookByTime extends HttpServlet {
             queryParams.put("pageSize", pageSize);
             request.setAttribute("queryParams", queryParams);
             request.setAttribute("title", "最新发布");
+            request.setAttribute("url", request.getContextPath() + "/servlet/GetBookByTime");
             request.getRequestDispatcher("/main/book_list.jsp").forward(request, response);
         } catch (NumberFormatException e) {
             // 参数不是整数

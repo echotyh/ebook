@@ -117,6 +117,30 @@ public class BookBiz {
     }
 
     /**
+     * 获取图书信息
+     *
+     * @param   id
+     * @return  图书信息Map | null
+     */
+    public Map<String, Object> getBookInfoById(int id) {
+        if (id <= 0) {
+            return null;
+        }
+        String sql = "SELECT * FROM book b,bookseries s,booktype t,user u " +
+                "WHERE b.seriesid=s.bookseriesid AND b.authorid=u.userid AND b.typeid=t.typeid AND " +
+                "b.checked='y' AND b.saled='y' AND b.bookid=?" +
+                " ORDER BY b.publishdate DESC";
+        DBUtil dbUtil = new DBUtil();
+        dbUtil.init(DBConfig.masterHost[0], "13306", "ebook");
+        List<Map<String, Object>> bookList = dbUtil.query(sql, new Object[] {id});
+        if (null == bookList || bookList.isEmpty()) {
+            return null;
+        } else {
+            return bookList.get(0);
+        }
+    }
+
+    /**
      * 查询图书信息，按发布时间降序
      *
      * @return
