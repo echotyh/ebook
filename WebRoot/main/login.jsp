@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	<td colspan="2"><span id="msg"><c:if test="${msg!=null}">${msg}</c:if></span></td>
         </tr>
          <tr>
-        	<td><input type="button" value="注  册" class="re" onclick="<%=basePath%>window.location.href='main/register.jsp'"/></td>
+        	<td><input type="button" value="注  册" class="re" onclick="window.location.href='main/register.jsp'"/></td>
             <td><button class="lo"  >登  录</button></td>
         </tr>
      </table>

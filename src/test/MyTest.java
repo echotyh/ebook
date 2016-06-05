@@ -1,6 +1,5 @@
 package test;
 
-import com.sun.imageio.plugins.common.ImageUtil;
 import com.xiaotangbao.ebook.dao.BookTypeDao;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;

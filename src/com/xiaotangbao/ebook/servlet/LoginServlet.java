@@ -34,31 +34,35 @@ public class LoginServlet extends HttpServlet {
 		//System.out.println("这是个servlet");
 		//request.getRequestDispatcher("/main/test.jsp").forward(request, response);
 		    // TODO Auto-generated method stub
-				 String user_name=request.getParameter("user_name");
-				 String user_pwd=request.getParameter("user_pwd");
-				 UserBiz userbiz=new UserBiz();
-				 
-				 User user=null;
-				try {
-					user = userbiz.login(user_name, user_pwd);
-					//System.out.println("user"+user);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					request.setAttribute("msg", "小服有点累，请稍等");
-					
-					e.printStackTrace();
-					//request.getRequestDispatcher("/main/test.jsp").forward(request, response);
-				}
-				
-					if(user!=null){
-						 request.getSession().setAttribute("user",user );
-						 request.getRequestDispatcher("AllBookSvl").forward(request, response);
-						 
-					 }else{
-						 request.setAttribute("msg", "用户名或密码错误，请重新登录或注册");
-						 request.getRequestDispatcher("/main/login.jsp").forward(request, response);
-						 
-					 }
+		request.setCharacterEncoding("UTF-8");	 
+		String user_name = request.getParameter("user_name");
+		String user_pwd = request.getParameter("user_pwd");
+		UserBiz userbiz = new UserBiz();
+
+		User user = null;
+		try {
+			user = userbiz.login(user_name, user_pwd);
+			// System.out.println("user"+user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			request.setAttribute("msg", "小服有点累，请稍等");
+
+			e.printStackTrace();
+			// request.getRequestDispatcher("/main/test.jsp").forward(request,
+			// response);
+		}
+
+		if (user != null) {
+			request.getSession().setAttribute("user", user);
+			request.getRequestDispatcher("AllBookSvl").forward(request,
+					response);
+
+		} else {
+			request.setAttribute("msg", "用户名或密码错误，请重新登录或注册");
+			request.getRequestDispatcher("/main/login.jsp").forward(request,
+					response);
+
+		}
 	
 	}
 	/**
