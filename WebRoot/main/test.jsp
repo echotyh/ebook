@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -19,15 +19,55 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<script src="<%=basePath%>script/jquery-2.2.3.js"></script>
 
   </head>
+  <script type="text/javascript">
+   $function(){
+         $('#myTabs li:eq(0) a').click(function (e) {
+         e.preventDefault();
+         $(this).tab('show');
+        });
+        
+        $('#myTabs li:eq(1) a').click(function(e){
+          e.preventDefault();
+          $(this).tab('show');
+        });
+        
+         $('#myTabs li:eq(2) a').click(function(e){
+          e.preventDefault();
+          $(this).tab('show');
+          
+          $('#myTabs li:eq(3) a').click(function(e){
+          e.preventDefault();
+          $(this).tab('show');
+        });
+          
+        });
+        
+
+   }
+</script>
   
   <body>
-    This is my test page. <br>
-    <img src="http://localhost:8080/ebook/user/ReadBookSvl?book=11"/>
+  
+     <div class="book-comment">  <!-- comment -->
+     <ul class="nav nav-tabs" role="tablist" id="myTabs">
+    <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">全部评论</a></li>
+    <li role="presentation"><a href="#good" aria-controls="good" role="tab" data-toggle="tab">好评</a></li>
+    <li role="presentation"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">中评</a></li>
+    <li role="presentation"><a href="#poor" aria-controls="poor" role="tab" data-toggle="tab">差评</a></li>
+    </ul>
 
-
-
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane in active" id="all"></div>
+    <div role="tabpanel" class="tab-pane" id="good"></div>
+    <div role="tabpanel" class="tab-pane" id="general"></div>
+    <div role="tabpanel" class="tab-pane" id="poor"></div>
+  </div>
+         
+</div> <!-- comment end -->
 
 
 
