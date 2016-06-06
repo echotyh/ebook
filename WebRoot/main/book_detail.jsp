@@ -25,11 +25,15 @@
     <!--
     <link rel="stylesheet" type="text/css" href="styles.css">
     -->
-    <script src="<%=basePath%>script/jquery-2.2.3.js"></script>
+    <link href="CSS/bootstrap.css" rel="stylesheet">
+	<script src="<%=basePath%>script/jquery-2.2.3.js"></script>
+	<script src="<%=basePath%>script/jquery.form.js"></script>
+	<script src="<%=basePath%>script/bootstrap.js"></script>
+
 </head>
 
 <script type="text/javascript">
-   $function(){
+   $(function(){
          $('#myTabs li:eq(0) a').click(function (e) {
          e.preventDefault();
          $(this).tab('show');
@@ -52,12 +56,13 @@
         });
         
 
-   }
+   });
 </script>
 
 <body>
     <%--<div>${requestScope.book}</div>--%>
     <c:set var="item" value="${requestScope.book}"/>
+  
     <div class="book_box">   <!-- 某一本书 -->
         <div class="cover_box">   <!-- cover -->
             <a href="${pageContext.request.contextPath}/servlet/BookDetail?book=${item.bookid}"><img src="${pageContext.request.contextPath}/book-images/${item.bookid}.png"/></a>
@@ -107,10 +112,56 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane in active" id="all">all</div>
-    <div role="tabpanel" class="tab-pane" id="good">good</div>
-    <div role="tabpanel" class="tab-pane" id="general">general</div>
-    <div role="tabpanel" class="tab-pane" id="poor">poor</div>
+    <div role="tabpanel" class="tab-pane fade in active" id="all">
+       <table>
+          <c:forEach items="${requestScope.commentList}" var="comment"><!-- 全部评论 -->
+           <tr>
+              <td>${comment.username}</td>
+              <td>${comment.content }</td>
+              <td>${comment.time }</td>
+           </tr>
+        </c:forEach>
+       </table>
+    </div>
+    <div role="tabpanel" class="tab-pane fade " id="good">
+        <table>
+          <c:forEach items="${requestScope.commentList}" var="comment"><!-- 好评 -->
+          <c:if test="${comment.grade >= 4 }">
+           <tr>
+              <td>${comment.username}</td>
+              <td>${comment.content }</td>
+              <td>${comment.time }</td>
+           </tr>
+           </c:if>
+        </c:forEach>
+       </table>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="general">
+       <table>
+          <c:forEach items="${requestScope.commentList}" var="comment"><!-- 中评 -->
+          <c:if test="${comment.grade >= 2 && comment.grade <4 }">
+           <tr>
+              <td>${comment.username}</td>
+              <td>${comment.content }</td>
+              <td>${comment.time }</td>
+           </tr>
+           </c:if>
+        </c:forEach>
+       </table>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="poor">
+        <table>
+          <c:forEach items="${requestScope.commentList}" var="comment"><!-- 差评 -->
+          <c:if test="${comment.grade < 2 }">
+           <tr>
+              <td>${comment.username}</td>
+              <td>${comment.content }</td>
+              <td>${comment.time }</td>
+           </tr>
+           </c:if>
+        </c:forEach>
+       </table>
+    </div>
   </div>
          
 </div> <!-- comment end -->

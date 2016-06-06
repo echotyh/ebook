@@ -26,6 +26,8 @@
 图书详情页面：
     图书信息、评论信息
 
+echotyh：detail.jsp
+用了这个，你记得传参过来哦，${requestScope.commentList}
 
 TODO:
 /servlet/BookDetail?book=bookid
