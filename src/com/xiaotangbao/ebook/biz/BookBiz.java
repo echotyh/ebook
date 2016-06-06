@@ -207,9 +207,21 @@ public class BookBiz {
         return bookList;
     }
 
-    public List<Map<String, Object>> getComments(int bookId) {
-        // TODO
-        return null;
+    /**
+     * 查询图书评论
+     * 返回的结果map中包含的key有：
+     * commentid, content, grade, userid, username
+     *
+     * @param bookId
+     * @return
+     * @throws Exception
+     */
+    public List<Map<String, Object>> getComments(int bookId) throws Exception {
+        if (bookId <= 0) {
+            throw new Exception("参数错误，id不能小于等于0");
+        }
+        CommentBiz commentBiz = new CommentBiz();
+        return commentBiz.getCommentsByBookId(bookId);
     }
 
 }
