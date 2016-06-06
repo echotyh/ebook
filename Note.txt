@@ -23,6 +23,9 @@
 图书列表页面(book_list.jsp，首页查看更多链接进入)
     最后一页再点下一页时会出现空白页面，没处理
 
+图书详情页面：
+    图书信息、评论信息
+
 
 TODO:
 /servlet/BookDetail?book=bookid
