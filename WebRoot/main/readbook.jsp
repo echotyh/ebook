@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%--
   User: SunJianwei<327021593@qq.com>
@@ -8,7 +9,7 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
     <base href="<%=basePath%>">
@@ -25,8 +26,16 @@
 </head>
 
 <body>
-####################
-<img src="<%=basePath%>user/pagephoto?book=${requestScope.bookId}" />
-####################
+
+<div>
+    <img src="<%=basePath%>user/pagephoto?book=${requestScope.bookId}&page=${requestScope.page}" />
+</div>
+<div>
+    <c:if test="${requestScope.page gt 1}">
+        <a href="<%=basePath%>user/ReadBookSvl?book=${requestScope.bookId}&page=${requestScope.page - 1}">上一页</a>
+    </c:if>
+    <a href="<%=basePath%>user/ReadBookSvl?book=${requestScope.bookId}&page=${requestScope.page + 1}">下一页</a>
+</div>
+
 </body>
 </html>
