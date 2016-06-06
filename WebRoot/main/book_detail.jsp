@@ -10,6 +10,7 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -24,7 +25,35 @@
     <!--
     <link rel="stylesheet" type="text/css" href="styles.css">
     -->
+    <script src="<%=basePath%>script/jquery-2.2.3.js"></script>
 </head>
+
+<script type="text/javascript">
+   $function(){
+         $('#myTabs li:eq(0) a').click(function (e) {
+         e.preventDefault();
+         $(this).tab('show');
+        });
+        
+        $('#myTabs li:eq(1) a').click(function(e){
+          e.preventDefault();
+          $(this).tab('show');
+        });
+        
+         $('#myTabs li:eq(2) a').click(function(e){
+          e.preventDefault();
+          $(this).tab('show');
+          
+          $('#myTabs li:eq(3) a').click(function(e){
+          e.preventDefault();
+          $(this).tab('show');
+        });
+          
+        });
+        
+
+   }
+</script>
 
 <body>
     <%--<div>${requestScope.book}</div>--%>
@@ -57,6 +86,38 @@
                 ${item.introduction}
             </div>
         </div>
+        <div class="btn-book">  <!-- j加入购物车，收藏，立即购买按钮 -->
+            <button onclick="window.location.href='<%=basePath %>AddShopCarSvl?bookid=${item.bookid}'">添加到购物车</button>
+            <button onclick="window.location.href='<%=basePath %>BuyNowSvl?bookid=${item.bookid}'">立即购买</button>
+            <button onclick="window.location.href='<%=basePath %>CollectSvl?bookid=${item.bookid}'">收藏</button> 
+            
+        </div>
+        
     </div>
+    
+   <div class="book-comment">  <!-- comment -->
+  
+    <ul class="nav nav-tabs" role="tablist" id="myTabs">
+    <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">全部评论</a></li>
+    <li role="presentation"><a href="#good" aria-controls="good" role="tab" data-toggle="tab">好评</a></li>
+    <li role="presentation"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">中评</a></li>
+    <li role="presentation"><a href="#poor" aria-controls="poor" role="tab" data-toggle="tab">差评</a></li> 
+    </ul>
+    
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane in active" id="all">all</div>
+    <div role="tabpanel" class="tab-pane" id="good">good</div>
+    <div role="tabpanel" class="tab-pane" id="general">general</div>
+    <div role="tabpanel" class="tab-pane" id="poor">poor</div>
+  </div>
+         
+</div> <!-- comment end -->
+
+<div id="home_bottom">
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Copyright Site design by Tang Yuhang</p>
+</div>
+
 </body>
 </html>
