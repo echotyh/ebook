@@ -207,4 +207,9 @@ public class BookBiz {
         return bookList;
     }
 
+    public List<Map<String, Object>> getComments(int bookId) {
+        // TODO
+        return null;
+    }
+
 }

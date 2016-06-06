@@ -28,6 +28,8 @@ public class BookDetial extends HttpServlet {
             // 查图书数据
             BookBiz bookBiz = new BookBiz();
             Map<String, Object> bookInfo = bookBiz.getBookInfoById(id);
+            // TODO 获取图书的评论
+
             // 处理结果 跳转
             if (null == bookInfo) {
                 request.setAttribute("errmsg", "图书已经不存在了");
