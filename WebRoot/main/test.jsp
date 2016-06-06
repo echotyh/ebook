@@ -71,11 +71,7 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane fade in active" id="all">
-      <table>
-       
-      </table>
-    </div>
+    <div role="tabpanel" class="tab-pane fade in active" id="all">AA</div>
     <div role="tabpanel" class="tab-pane fade" id="good">BB</div>
     <div role="tabpanel" class="tab-pane fade" id="general">CC</div>
     <div role="tabpanel" class="tab-pane fade" id="poor">DD</div>
