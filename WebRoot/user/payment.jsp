@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         应付金额为：${AllPrice }元<br />
     
     
-       <input type="button" value="返回购物车" class="re" onclick="#。。。。'"/><!-- 这个就是返回刚刚的购物车界面，我不知道怎么返回 -->
+       <input type="button" value="返回购物车" class="re" onclick=""/><!-- 这个就是返回刚刚的购物车界面，我不知道怎么返回 -->
        <button>立即支付</button>
     
     
