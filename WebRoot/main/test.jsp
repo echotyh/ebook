@@ -1,13 +1,15 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
-  <head>
+<head>
     <base href="<%=basePath%>">
+
     
     <title>My JSP 'test.jsp' starting page</title>
     
@@ -27,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <script type="text/javascript">
+
    $(function(){
          $('#myTabs li:eq(0) a').click(function (e) {
          e.preventDefault();
@@ -51,6 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
 
    });
+
 </script>
   
   <body>
@@ -78,4 +82,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
   </body>
+
 </html>
