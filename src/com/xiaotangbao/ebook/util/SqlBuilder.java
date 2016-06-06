@@ -53,6 +53,10 @@ public class SqlBuilder {
             sql.append(" WHERE ");
             Set<String> keySet = conds.keySet();
             for (String key : keySet) {
+                if ("#".equals(key)) {
+                    sql.append("("+ conds.get(key) +") AND ");
+                    continue;
+                }
                 sql.append("(`" + key + "`");
                 Object value = conds.get(key);
                 if (value instanceof String || value instanceof Number) {
@@ -112,6 +116,10 @@ public class SqlBuilder {
             sql.append(" WHERE ");
             keySet = conds.keySet();
             for (String key : keySet) {
+                if ("#".equals(key)) {
+                    sql.append("("+ conds.get(key) +") AND ");
+                    continue;
+                }
                 sql.append("(`" + key + "`");
                 Object value = conds.get(key);
                 if (value instanceof String || value instanceof Number) {
@@ -191,6 +199,10 @@ public class SqlBuilder {
             sql.append(" WHERE ");
             Set<String> keySet = conds.keySet();
             for (String key : keySet) {
+                if ("#".equals(key)) {
+                    sql.append("("+ conds.get(key) +") AND ");
+                    continue;
+                }
                 sql.append("(`" + key + "`");
                 Object value = conds.get(key);
                 if (value instanceof String || value instanceof Number) {

@@ -72,7 +72,7 @@
                 }
             },
             error: function(e) {
-                alert("服务器出错啦");
+                alert("未登录");
             }
         });
     }

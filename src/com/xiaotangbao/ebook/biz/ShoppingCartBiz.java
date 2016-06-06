@@ -64,7 +64,7 @@ public class ShoppingCartBiz {
         ids.append(")");
         BookDao bookDao = new BookDao();
         conds.clear();
-        conds.put("bookid", new Object[]{ids.toString(), " in "});
+        conds.put("#", "`bookid` IN " + ids);
         conds.put("checked", "y");
         conds.put("saled", "y");
 
