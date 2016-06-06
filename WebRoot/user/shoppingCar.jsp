@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                
                <c:forEach var="book" items="${books}">
                    <tr class="shop_content">
-        	       <td height="80px"><img src="images/${book.bookid}.jpg " alt="商品图片" width="70" height="50" tag="商品展示"/><p>${book.bookname} </p></td>
+        	       <td height="80px"><img src="images/${book.bookid}.png " alt="商品图片" width="70" height="50" tag="商品展示"/><p>${book.bookname} </p></td>
         	       
                    <td>${book.price} </td>
                    <td>${book.introduction }</td>

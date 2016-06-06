@@ -35,7 +35,7 @@ public class BaseDao {
      * @param appends
      * @param closeConn
      * @return
-     * @throws BaseException
+     * @throws Exception
      */
     public List<Map<String,Object>> getByConds(Map<String, Object> conds, List<String> fields, 
                                                List<String> appends, boolean closeConn) throws Exception {
@@ -50,6 +50,9 @@ public class BaseDao {
             Set<String> keySet = conds.keySet();
             int i = 0;
             for (String key : keySet) {
+                if ("#".equals(key)) {
+                    continue;
+                }
                 Object cond = conds.get(key);
                 if (cond instanceof String || cond instanceof Number) {
                     params[i++] = cond;
@@ -79,7 +82,7 @@ public class BaseDao {
      * @param appends
      * @param closeConn
      * @return
-     * @throws BaseException
+     * @throws Exception
      */
     public long countByConds(Map<String, Object> conds, List<String> appends, boolean closeConn) throws Exception {
         List<String> fields = new ArrayList<String>();
@@ -103,7 +106,7 @@ public class BaseDao {
      * @param   fields
      * @param   closeConn
      * @return
-     * @throws BaseException
+     * @throws Exception
      */
     public int updateByConds(Map<String, Object> conds, Map<String, Object> fields, boolean closeConn) throws Exception {
         MySQLDBSelector selector = new MySQLDBSelector();
@@ -133,6 +136,9 @@ public class BaseDao {
             Set<String> keySet = conds.keySet();
             int i = 0;
             for (String key : keySet) {
+                if ("#".equals(key)) {
+                    continue;
+                }
                 Object cond = conds.get(key);
                 if (cond instanceof String || cond instanceof Number) {
                     params[index++] = cond;
@@ -162,7 +168,7 @@ public class BaseDao {
      * @param   appends
      * @param   closeConn
      * @return                  新插入的id
-     * @throws BaseException
+     * @throws Exception
      */
     //fields 是键值，直接插入，第二个参数基本没有用，第三个参数为true表示查询完直接关闭连接
     public long insert(Map<String, Object> fields, List<String> appends, boolean closeConn) throws Exception {
@@ -215,6 +221,9 @@ public class BaseDao {
             Set<String> keySet = conds.keySet();
             int i = 0;
             for (String key : keySet) {
+                if ("#".equals(key)) {
+                    continue;
+                }
                 Object cond = conds.get(key);
                 if (cond instanceof String || cond instanceof Number) {
                     params[i++] = cond;
