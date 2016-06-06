@@ -29,7 +29,7 @@ public class CommentBiz {
         }
         DBUtil dbUtil = new DBUtil();
         dbUtil.init(DBConfig.slaveHosts[0][0], DBConfig.slaveHosts[0][1], "ebook");
-        String sql = "SELECT c.commentid as commentid, c.content as content, c.grade as grade, u.userid as userid, u.username as username" +
+        String sql = "SELECT c.commentid as commentid, c.content as content, c.grade as grade, c.`time` as `time`, u.userid as userid, u.username as username" +
                 " FROM `comment` c, `user` u WHERE c.userid=u.userid AND c.bookid=?";
         List<Map<String, Object>> commentList = dbUtil.query(sql, new Object[]{bookId});
         return commentList;

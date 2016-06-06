@@ -74,7 +74,7 @@ public class BookDetial extends HttpServlet {
         List<Map<String, Object>> m = new ArrayList<>();
         List<Map<String, Object>> h = new ArrayList<>();
         for (Map<String, Object> comment : comments) {
-            int grade = Integer.parseInt((String) comment.get("grade"));
+            int grade = (int) comment.get("grade");
             if (grade < 3) {
                 // 差评
                 l.add(comment);

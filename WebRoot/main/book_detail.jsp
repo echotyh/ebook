@@ -25,7 +25,7 @@
     <!--
     <link rel="stylesheet" type="text/css" href="styles.css">
     -->
-    <link href="CSS/bootstrap.css" rel="stylesheet">
+    <link href="<%=basePath%>CSS/bootstrap.css" rel="stylesheet">
 	<script src="<%=basePath%>script/jquery-2.2.3.js"></script>
 	<script src="<%=basePath%>script/jquery.form.js"></script>
 	<script src="<%=basePath%>script/bootstrap.js"></script>
@@ -94,7 +94,8 @@
         <div class="btn-book">  <!-- j加入购物车，收藏，立即购买按钮 -->
             <button onclick="window.location.href='<%=basePath %>AddShopCarSvl?bookid=${item.bookid}'">添加到购物车</button>
             <button onclick="window.location.href='<%=basePath %>BuyNowSvl?bookid=${item.bookid}'">立即购买</button>
-            <button onclick="window.location.href='<%=basePath %>CollectSvl?bookid=${item.bookid}'">收藏</button> 
+            <button onclick="window.location.href='<%=basePath %>CollectSvl?bookid=${item.bookid}'">收藏</button>
+            <button onclick="window.location.href='<%=basePath %>user/ReadBookSvl?book=${item.bookid}'">试读</button>
             
         </div>
         
@@ -114,7 +115,7 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="all">
        <table>
-          <c:forEach items="${requestScope.commentList}" var="comment"><!-- 全部评论 -->
+          <c:forEach items="${requestScope.comments.all}" var="comment"><!-- 全部评论 -->
            <tr>
               <td>${comment.username}</td>
               <td>${comment.content }</td>
@@ -125,40 +126,34 @@
     </div>
     <div role="tabpanel" class="tab-pane fade " id="good">
         <table>
-          <c:forEach items="${requestScope.commentList}" var="comment"><!-- 好评 -->
-          <c:if test="${comment.grade >= 4 }">
+          <c:forEach items="${requestScope.comments.good}" var="comment"><!-- 好评 -->
            <tr>
               <td>${comment.username}</td>
               <td>${comment.content }</td>
               <td>${comment.time }</td>
            </tr>
-           </c:if>
         </c:forEach>
        </table>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="general">
        <table>
-          <c:forEach items="${requestScope.commentList}" var="comment"><!-- 中评 -->
-          <c:if test="${comment.grade >= 2 && comment.grade <4 }">
+          <c:forEach items="${requestScope.comments.general}" var="comment"><!-- 中评 -->
            <tr>
               <td>${comment.username}</td>
               <td>${comment.content }</td>
               <td>${comment.time }</td>
            </tr>
-           </c:if>
         </c:forEach>
        </table>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="poor">
         <table>
-          <c:forEach items="${requestScope.commentList}" var="comment"><!-- 差评 -->
-          <c:if test="${comment.grade < 2 }">
+          <c:forEach items="${requestScope.comments.poor}" var="comment"><!-- 差评 -->
            <tr>
               <td>${comment.username}</td>
               <td>${comment.content }</td>
               <td>${comment.time }</td>
            </tr>
-           </c:if>
         </c:forEach>
        </table>
     </div>
