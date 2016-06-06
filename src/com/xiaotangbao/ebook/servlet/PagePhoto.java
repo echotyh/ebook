@@ -12,25 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 
 /**
- * 图书阅读
- *
  * @author  SunJianwei<327021593@qq.com>
- * @date    16-5-29 22:33
+ * @date    16-6-6 12:48
  */
-@WebServlet(name = "ReadBookSvl", urlPatterns="/user/ReadBookSvl")
-public class ReadBookSvl extends HttpServlet {
-
+@WebServlet(name = "PagePhoto", urlPatterns = "/user/pagephoto")
+public class PagePhoto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html");
-        response.setCharacterEncoding("utf-8");
         try {
             User user = (User) request.getSession().getAttribute("user");
             if (null == user) {
-                response.sendRedirect(request.getContextPath() + "/main/login.jsp");
+                // 未登录
+                return;
             }
             String bookParam = request.getParameter("book");
             if (null == bookParam || bookParam.isEmpty()) {
@@ -42,18 +37,14 @@ public class ReadBookSvl extends HttpServlet {
             if (null != pageStr && !pageStr.isEmpty()) {
                 page = Integer.parseInt(pageStr);
             }
-            page = new UserBiz().canReadBook(user, bookId, page);
-            // 没有权限读
-            if (page < 0) {
-                throw new Exception("继续读需要购买");
-            }
-            request.setAttribute("page", page);
-            request.setAttribute("bookId", bookId);
-            request.getRequestDispatcher("/main/readbook.jsp").forward(request, response);
+            BufferedImage imageDatas = new UserBiz().readBook(user, bookId, page, request.getRealPath("/"));
+            response.setContentType("image/png");
+            OutputStream out = response.getOutputStream();
+            ImageIO.write(imageDatas, "png", out);
+            out.flush();
+            out.close();
         } catch (Exception e) {
-            request.setAttribute("errmsg", e.getMessage());
-            request.setAttribute("errClass", e.getClass().getName());
-            request.getRequestDispatcher("/main/error.jsp").forward(request, response);
+            return;
         }
     }
 
