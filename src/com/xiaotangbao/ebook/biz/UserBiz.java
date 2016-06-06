@@ -71,18 +71,9 @@ public class UserBiz {
      */
     public BufferedImage readBook(User user, int bookId, int page, String rootRealPath) throws Exception {
         ReadRecordBiz readRecordBiz = new ReadRecordBiz(user.getUserid(), bookId);
-        if (0 == page) {
-            // 获取阅读记录
-            page = readRecordBiz.getRecord();
-        }
-        if (page <= 0) {
-            page = 1;
-        }
-        // 判断是否已买此书，如果没买过根据试读限制页数
-        OrderBiz orderBiz = new OrderBiz();
-        boolean bought = orderBiz.checkIfBoughtBook(user.getUserid(), bookId);
-        if (!bought && page > BookBiz.READ_MAX_FREE_PAGE) {
-            // 如果没有购买，并且试读页数是否超过限制
+        page = canReadBook(user, bookId, page);
+        if (page < 0) {
+            // 没有读权限
             throw new Exception("要购买才等读后面的内容");
         }
         // 有权限阅读，取出对应页码的内容
@@ -97,5 +88,32 @@ public class UserBiz {
         readRecordBiz.record(page);
 
         return imageDatas;
+    }
+
+    /**
+     * 判断用户是否有权限读page页
+     *
+     * @param   user
+     * @param   bookId
+     * @param   page
+     * @return  返回页数，如果没有权限返回-1
+     * @throws  Exception
+     */
+    public int canReadBook(User user, int bookId, int page) throws Exception {
+        ReadRecordBiz readRecordBiz = new ReadRecordBiz(user.getUserid(), bookId);
+        if (0 == page) {
+            // 获取阅读记录
+            page = readRecordBiz.getRecord();
+        }
+        if (page <= 0) {
+            page = 1;
+        }
+        // 判断是否已买此书，如果没买过根据试读限制页数
+        OrderBiz orderBiz = new OrderBiz();
+        boolean bought = orderBiz.checkIfBoughtBook(user.getUserid(), bookId);
+        if (!bought && page > BookBiz.READ_MAX_FREE_PAGE) {
+            return -1;
+        }
+        return page;
     }
 }

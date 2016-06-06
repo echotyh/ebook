@@ -35,7 +35,7 @@ public class BookDetial extends HttpServlet {
             Map<String, Object> bookInfo = bookBiz.getBookInfoById(id);
             // 获取图书的评论      commentid, content, userid, username
             List<Map<String, Object>> comments = bookBiz.getComments(id);
-            // 将评论分为好评（good）、中评（middle）、差评（bad）
+            // 将评论分为 全部（all）、好评（good）、中评（general）、差评（poor）
             Map<String, List<Map<String, Object>>> commentSplited = splitComments(comments);
             // 处理结果 跳转
             if (null == bookInfo) {
@@ -60,7 +60,7 @@ public class BookDetial extends HttpServlet {
     }
 
     /**
-     * 将评论分为好评（good）、中评（middle）、差评（bad）
+     * 将评论分为 全部（all）、好评（good）、中评（general）、差评（poor）
      *
      * @param comments
      * @return
@@ -79,13 +79,16 @@ public class BookDetial extends HttpServlet {
                 // 差评
                 l.add(comment);
             } else if (grade < 5) {
+                // 中评
                 m.add(comment);
             } else {
+                // 好评
                 h.add(comment);
             }
         }
-        result.put("bad", l);
-        result.put("middle", m);
+        result.put("all", comments);
+        result.put("poor", l);
+        result.put("general", m);
         result.put("good", h);
         return result;
     }
