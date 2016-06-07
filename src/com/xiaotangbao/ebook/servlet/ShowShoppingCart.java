@@ -34,7 +34,7 @@ public class ShowShoppingCart extends HttpServlet {
             for (Map<String, Object> item : shoppingCartItems) {
                 int price = (int) item.get("price");
                 BigDecimal discount = (BigDecimal) item.get("discount");
-                sum += (int) (price * discount.doubleValue());
+                sum += (int) (price * discount.doubleValue() / 10);
                 count ++ ;
             }
             request.setAttribute("books", shoppingCartItems);
