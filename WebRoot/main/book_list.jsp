@@ -32,6 +32,8 @@
 
 <body>
 
+<jsp:include page="header.jsp"/>
+
 
 <div class="wrapper">
     <div class="module_title">   <!-- 模块头 -->

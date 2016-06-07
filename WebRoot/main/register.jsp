@@ -111,6 +111,9 @@
 </head>
 
 <body>
+
+<jsp:include page="header.jsp"/>
+
 <div id="login" style="background-position:25% 30px;">
 
     <div id="login_content">

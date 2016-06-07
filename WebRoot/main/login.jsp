@@ -47,6 +47,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </script>
   
   <body>
+
+  <jsp:include page="header.jsp"/>
+
     <div id="login">
     
  	<div id="login_content">
