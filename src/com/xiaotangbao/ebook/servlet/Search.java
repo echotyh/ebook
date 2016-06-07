@@ -36,7 +36,6 @@ public class Search extends HttpServlet {
             int pageSize = DEFAULT_PAGE_SIZE;
 
             if (null != query && !query.isEmpty()) {
-                // TODO 处理空
                 // 获取page、pageSize参数
                 String pageStr = request.getParameter("page");
 
