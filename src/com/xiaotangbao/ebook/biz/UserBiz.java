@@ -148,5 +148,11 @@ public class UserBiz {
     	}
     	return books;
     }
+    //获取用户余额
+    public int getExpend(int userid) throws Exception{
+    	UserDao userdao = new UserDao();
+    	return userdao.getExpend(userid);
+    	
+    }
     
 }

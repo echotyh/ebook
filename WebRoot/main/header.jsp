@@ -57,7 +57,7 @@
 </script>
 
 <div class="commen_header">
-    <div class="header_logo_box"><a href="<%=basePath%>">不啦不啦 电子书城</a></div>
+    <div class="header_logo_box"><a href="<%=basePath%>">BALALA EBOOK STORE</a></div>
     <div class="header_searbox">
         <!-- 搜索框 -->
         <input id="search_text" type="text" placeholder="搜索图书" />

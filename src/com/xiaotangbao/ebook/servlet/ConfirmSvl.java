@@ -93,7 +93,9 @@ public class ConfirmSvl extends HttpServlet {
 			if (sum != Integer.parseInt(request.getParameter("money"))) {
 				throw new Exception("价格出现变动，请重新在购物车中查看哦。");
 			}
-			int expenditure = loginUser.getExpenditure();
+			//int expenditure = loginUser.getExpenditure();
+			UserBiz userbiz = new UserBiz();
+			int expenditure = userbiz.getExpend(userid) ;
 			if (sum <= expenditure) {
 				OrderBiz orderbiz = new OrderBiz();
 				Date date = new Date();
@@ -105,7 +107,6 @@ public class ConfirmSvl extends HttpServlet {
 					BigDecimal price = new BigDecimal(
 							((int) item.get("price") * discount.floatValue()) / 10);
 					orderbiz.addOrder(userid, bookId, time, "y", price);
-					UserBiz userbiz = new UserBiz();
 					userbiz.updateExpend(userid, loginUser.getExpenditure()
 							- sum);
 

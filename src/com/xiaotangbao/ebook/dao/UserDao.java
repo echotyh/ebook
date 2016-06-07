@@ -107,6 +107,21 @@ public class UserDao extends BaseDao {
 		result = updateByConds(conds, fields);
 		return result;
 	}
+	//查询一用户余额
+	public int getExpend(int userid) throws Exception{
+		List<Map<String,Object>> users = new ArrayList<Map<String,Object>>();
+		Map<String, Object> conds = new HashMap<String,Object>();
+		conds.put("userid", userid);
+		List<String> fields =new ArrayList<String>();
+		fields.add("Expenditure");
+		users = getByConds(conds,  fields, 
+                null, true);
+		if(!users.isEmpty()){
+			return (int)users.get(0).get("Expenditure");
+		}
+		
+		return 0;
+	}
 
 	@Test
 	public void test() throws Exception{
