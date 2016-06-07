@@ -58,6 +58,24 @@
 
    });
 
+   function add2collection(bookId) {
+       // 加入收藏
+       jQuery.ajax({
+           type : "GET",
+           url : "<%=basePath%>servlet/add2collection?book=" + encodeURIComponent(bookId),
+           dataType: "json",
+           success: function(data) {
+               if (0 == data.errno) {
+                   alert("已收藏");
+               } else {
+                   alert(data.errmsg);
+               }
+           },
+           error: function(e) {
+               alert("服务器出错啦");
+           }
+       });
+   }
     function add2ShoppingCart(bookId) {
         // 加入购物车
         jQuery.ajax({
@@ -113,10 +131,9 @@
                 ${item.introduction}
             </div>
         </div>
-        <div class="btn-book">  <!-- j加入购物车，收藏，立即购买按钮 -->
+        <div class="btn-book">  <!-- 加入购物车，收藏，立即购买按钮 -->
             <button onclick="add2ShoppingCart(${item.bookid});">添加到购物车</button>
-            <button onclick="window.location.href='<%=basePath %>BuyNowSvl?bookid=${item.bookid}'">立即购买</button>
-            <button onclick="window.location.href='<%=basePath %>CollectSvl?bookid=${item.bookid}'">收藏</button>
+            <button onclick="add2collection(${item.bookid});">收藏</button>
             <button onclick="window.location.href='<%=basePath %>user/ReadBookSvl?book=${item.bookid}'">试读</button>
             
         </div>
