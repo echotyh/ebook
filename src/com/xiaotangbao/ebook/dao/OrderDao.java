@@ -15,7 +15,7 @@ public class OrderDao extends BaseDao {
         table   = "orders";
     }
     
-    public long addOreder(int userId,int bookId,String time,String status,BigDecimal price) throws Exception{
+    public long addOrder(int userId,int bookId,String time,String status,BigDecimal price) throws Exception{
     	Map<String, Object> fields = new HashMap<String, Object>();
     	
         fields.put("userid", userId);
@@ -28,6 +28,5 @@ public class OrderDao extends BaseDao {
     	
     	return result;
     }
-    
 
 }

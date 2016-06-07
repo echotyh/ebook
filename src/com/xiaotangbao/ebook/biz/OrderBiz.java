@@ -42,7 +42,7 @@ public class OrderBiz {
     public long addOrder(int userId,int bookId,String time,String status,BigDecimal price) throws Exception{
         OrderDao orderdao = new OrderDao(); 
     	try{
-    		long result =orderdao.addOreder(userId, bookId, time, status, price);
+    		long result =orderdao.addOrder(userId, bookId, time, status, price);
     		return result;
     	}catch(Exception e){
     		throw new Exception("小服有點累，請掃后再試哦。");
