@@ -63,8 +63,8 @@ public class BookBiz {
             conds.put("typeid", book.getTypeid());
             conds.put("introduction", book.getIntroduction());
             conds.put("price", book.getPrice());
-            conds.put("checked", "n");
-            conds.put("saled", "n");
+            conds.put("checked", "y");
+            conds.put("saled", "y");
             conds.put("discount", 10);
             conds.put("commentnum", 0);
             conds.put("averagegrade", 0);

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -25,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
  <div id="user_info">
-	<p id="welcome">欢迎您 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:if test="${user!=null}">${user.user_name}</c:if><c:if test="${user==null}"><a href="main/login.jsp">请登录</a></c:if></p>
+	<p id="welcome">欢迎您 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:if test="${user!=null}">${user.name}</c:if><c:if test="${user==null}"><a href="main/login.jsp">请登录</a></c:if></p>
 	<c:if test="${user!=null}">
     <ul id="user_bar" >
         <li><a href="AllProductSvl">主页</a></li>

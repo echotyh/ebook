@@ -107,7 +107,7 @@
 
 
     </script>
-    
+
 </head>
 
 <body>
@@ -119,33 +119,36 @@
     <div id="login_content">
         <form onsubmit="return check();" action="<%=basePath%>servlet/RegisterSvl" method="post">
             <table cellspacing="10px">
-                <caption>~欢迎注册~</caption>
                 <tr>
-                    <td>用 户 名：</td>
+                    <td> </td>
+                    <td colspan="2">~欢迎注册~</td>
+                </tr>
+                <tr>
+                    <td><div style="width: 80px;">用 户 名：</div></td>
                     <td><input type="text" name="user_name" required/></td>
                     <td>
-                        <div id="message_name"></div>
+                        <div id="message_name"style="width:200px; max-height: 24px; overflow: visible;"></div>
                     </td>
                 </tr>
                 <tr>
                     <td>密  码：</td>
                     <td><input type="password" name="user_pwd" required/></td>
                      <td>
-                        <div id="message_pwd1"></div>
+                        <div id="message_pwd1" style="width:200px; max-height: 24px; overflow: visible;"></div>
                     </td>
                 </tr>
                 <tr>
                     <td>重复密码：</td>
                     <td><input type="password" name="user_pwd2" required/></td>
                      <td>
-                        <div id="message_pwd2"></div>
+                        <div id="message_pwd2"style="width:200px; max-height: 24px; overflow: visible;"></div>
                     </td>
                 </tr>
                 <tr>
                     <td>移动电话：</td>
                     <td><input type="tel" name="user_phone" required/></td>
                      <td>
-                        <div id="message_phone"></div>
+                        <div id="message_phone"style="width:200px; max-height: 24px; overflow: visible;"></div>
                     </td>
                 </tr>
                 
@@ -153,14 +156,14 @@
                     <td>电子邮箱:</td>
                     <td><input type="email" name="user_email" required/></td>
                      <td>
-                        <div id="message_email"></div>
+                        <div id="message_email"style="width:200px; max-height: 24px; overflow: visible;"></div>
                     </td>
                 </tr>
                 <tr>
                     <td>生  日：</td>
                     <td><input type="date" name="user_birth" required/></td>
                      <td>
-                        <div id="message_birth"></div>
+                        <div id="message_birth"style="width:200px; max-height: 24px; overflow: visible;"></div>
                     </td>
                 </tr>
                  <tr>
