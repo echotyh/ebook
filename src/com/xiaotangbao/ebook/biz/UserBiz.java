@@ -3,8 +3,12 @@ package com.xiaotangbao.ebook.biz;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.xiaotangbao.ebook.dao.OrderDao;
 import com.xiaotangbao.ebook.dao.UserDao;
 import com.xiaotangbao.ebook.entity.User;
 import com.xiaotangbao.ebook.util.PdfUtil;
@@ -127,4 +131,18 @@ public class UserBiz {
     	}
     	
     }
+    //獲得用戶已經购买的书
+    public List<Map<String,Object>> getBoughtBooks(int userid) throws Exception{
+    	OrderDao orderdao = new OrderDao();
+    	List<Integer> bookids = orderdao.getBoughtBooks(userid);
+    	BookBiz bookbiz = new BookBiz();
+    	List<Map<String,Object>> books = new ArrayList<Map<String,Object>>();
+    	Map<String,Object> book = new HashMap<String,Object>();
+    	for(int bookid : bookids){
+    		 book = bookbiz.getBookInfoById(bookid);
+    		 books.add(book);
+    	}
+    	return books;
+    }
+    
 }

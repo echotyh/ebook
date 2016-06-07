@@ -107,7 +107,7 @@ public class UserDao extends BaseDao {
 		result = updateByConds(conds, fields);
 		return result;
 	}
-	
+
 	@Test
 	public void test() throws Exception{
 		

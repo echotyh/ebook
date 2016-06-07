@@ -1,7 +1,9 @@
 package com.xiaotangbao.ebook.dao;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,6 +29,21 @@ public class OrderDao extends BaseDao {
         result = insert(fields, null, false);
     	
     	return result;
+    }
+    //获得某用户购买的bookid
+    public List getBoughtBooks(int userid) throws Exception{
+    	Map<String, Object> conds =new  HashMap<String,Object>();
+    	conds.put("userid", userid);
+    	conds.put("status", "y");
+    	List<String> fields =new ArrayList<String>();
+    	fields.add("bookid");
+    	List<Map<String,Object>> items = getByConds(conds,fields, null);
+    	List<Integer> books = new ArrayList<Integer>();
+    	for(Map<String,Object> item : items){
+    		int bookid = (int)item.get("bookid");
+    		books.add(bookid);
+    	}
+    	return books;
     }
 
 }
