@@ -9,6 +9,10 @@
 %>
 <script type="text/javascript" src="<%=basePath%>script/jquery-2.2.3.js"></script>
 <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
     .commen_header {
         border-bottom: 2px solid black;
         width: 100%;
@@ -37,7 +41,7 @@
     .commen_header .header_links a {
         line-height: 50px;
         float: right;
-        margin-left: 20px;
+        margin-right: 20px;
     }
 </style>
 
