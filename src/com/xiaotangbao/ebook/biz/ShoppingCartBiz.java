@@ -53,7 +53,7 @@ public class ShoppingCartBiz {
         fields.add("booknum");
 
         List<Map<String, Object>> cartItems = dao.getByConds(conds, fields, null);
-        // 根据id批量查数据库
+        // 根据id批量查数据库 select ...from ..where id in()
         StringBuilder ids = new StringBuilder();
         ids.append("(");
         for (Map<String, Object> item : cartItems) {
