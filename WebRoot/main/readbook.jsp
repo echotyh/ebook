@@ -27,6 +27,8 @@
 
 <body>
 
+<jsp:include page="header.jsp"/>
+
 <div>
     <img src="<%=basePath%>user/pagephoto?book=${requestScope.bookId}&page=${requestScope.page}" />
 </div>
