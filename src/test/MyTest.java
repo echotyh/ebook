@@ -11,6 +11,7 @@ import org.junit.Test;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -23,8 +24,8 @@ public class MyTest {
 
     @Test
     public void test02() throws Exception {
-        Date date = new Date();
-        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date));
+        BigDecimal bigDecimal = new BigDecimal(23.3);
+        System.out.println(bigDecimal.doubleValue());
     }
 
     @Test

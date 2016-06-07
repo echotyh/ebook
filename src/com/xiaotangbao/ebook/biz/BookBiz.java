@@ -224,4 +224,29 @@ public class BookBiz {
         return commentBiz.getCommentsByBookId(bookId);
     }
 
+    /**
+     * 首页的搜索功能，模糊查询
+     *
+     * @param query
+     * @param offset
+     * @param limit
+     * @return
+     */
+    public List<Map<String, Object>> queryLike(String query, int offset, int limit) {
+        query = "%" + query + "%";
+        String sql = "SELECT * FROM book b,bookseries s,booktype t,user u " +
+                "WHERE b.seriesid=s.bookseriesid AND b.authorid=u.userid AND b.typeid=t.typeid AND b.checked='y' AND b.saled='y'" +
+                " AND b.bookname like ? ";
+        if (offset < 0) {
+            offset = 0;
+        }
+        if (limit > 0) {
+            sql += " LIMIT " + offset + "," + limit;
+        }
+        DBUtil dbUtil = new DBUtil();
+        dbUtil.init(DBConfig.masterHost[0], "13306", "ebook");
+        List<Map<String, Object>> bookList = dbUtil.query(sql, new Object[]{query});
+        return bookList;
+    }
+
 }

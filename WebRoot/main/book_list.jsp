@@ -73,11 +73,17 @@
 
     <!-- 分页 -->
     <div>
+        <%
+            String url = (String) request.getAttribute("url");
+            if (!url.endsWith("&")) {
+                request.setAttribute("url", url + "?");
+            }
+        %>
         <span style="margin-right: 30px;"><a href="${pageContext.request.contextPath}">回首页</a></span>
         <c:if test="${requestScope.queryParams.page gt 1}">
-            <span style="margin-right: 30px;"><a href="${requestScope.url}?page=${requestScope.queryParams.page - 1}&pageSize=${requestScope.queryParams.pageSize}">上一页</a></span>
+            <span style="margin-right: 30px;"><a href="${requestScope.url}page=${requestScope.queryParams.page - 1}&pageSize=${requestScope.queryParams.pageSize}">上一页</a></span>
         </c:if>
-        <span style="margin-right: 30px;"><a href="${requestScope.url}?page=${requestScope.queryParams.page + 1}&pageSize=${requestScope.queryParams.pageSize}">下一页</a></span>
+        <span style="margin-right: 30px;"><a href="${requestScope.url}page=${requestScope.queryParams.page + 1}&pageSize=${requestScope.queryParams.pageSize}">下一页</a></span>
     </div>
 
 
