@@ -34,13 +34,12 @@ public class ShowShoppingCart extends HttpServlet {
             for (Map<String, Object> item : shoppingCartItems) {
                 int price = (int) item.get("price");
                 BigDecimal discount = (BigDecimal) item.get("discount");
-                int num = (int) item.get("booknum");
-                sum += (int) (price * discount.doubleValue() * num);
-                count += num;
+                sum += (int) (price * discount.doubleValue());
+                count ++ ;
             }
             request.setAttribute("books", shoppingCartItems);
             request.setAttribute("booknum", count);
-            request.setAttribute("totalPrice", count);
+            request.setAttribute("totalPrice", sum);
             request.getRequestDispatcher("/user/shoppingCar.jsp").forward(request, response);
         } catch (Exception e) {
             request.setAttribute("errmsg", e.getMessage());

@@ -22,6 +22,14 @@ public class ShoppingCartBiz {
         dao = new ShoppingCartDao();
     }
 
+    /**
+     * 向购物车中添加
+     *
+     * @param userId
+     * @param bookId
+     * @param num
+     * @throws Exception
+     */
     public void addItem(int userId, int bookId, int num) throws Exception {
         if (userId <= 0 || bookId <= 0) {
             throw new Exception("参数错误，用户和书的id都必须大于0");
@@ -89,5 +97,23 @@ public class ShoppingCartBiz {
         }
         return cartItems;
     }
+
+    /**
+     * 从购物车中删除
+     *
+     * @param userId
+     * @param bookId
+     * @throws Exception
+     */
+    public void deleteItem(int userId, int bookId) throws Exception {
+        if (userId <= 0 || bookId <= 0) {
+            throw new Exception("参数错误，用户和书的id都必须大于0");
+        }
+        Map<String, Object> conds = new HashMap<>();
+        conds.put("userid", userId);
+        conds.put("bookid", bookId);
+        dao.delByConds(conds, null);
+    }
+
 
 }

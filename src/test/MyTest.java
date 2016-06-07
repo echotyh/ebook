@@ -12,6 +12,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -19,6 +20,12 @@ import java.util.*;
  * @date 16-5-17 10:46
  */
 public class MyTest {
+
+    @Test
+    public void test02() throws Exception {
+        Date date = new Date();
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date));
+    }
 
     @Test
     public void test01() throws IOException {
