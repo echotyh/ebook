@@ -133,7 +133,6 @@
         </div>
         <div class="btn-book">  <!-- 加入购物车，收藏，立即购买按钮 -->
             <button onclick="add2ShoppingCart(${item.bookid});">添加到购物车</button>
-            <button onclick="window.location.href='<%=basePath %>BuyNowSvl?bookid=${item.bookid}'">立即购买</button>
             <button onclick="add2collection(${item.bookid});">收藏</button>
             <button onclick="window.location.href='<%=basePath %>user/ReadBookSvl?book=${item.bookid}'">试读</button>
             
