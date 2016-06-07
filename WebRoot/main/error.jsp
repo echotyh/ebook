@@ -24,11 +24,12 @@
 </head>
 
 <body>
+<jsp:include page="header.jsp"/>
     <center>
-        <h1>啊哦～～～出错啦</h1>
-        <div>ExceptionClass:${requestScope.errClass}</div>
-        <div>ExceptionMsg:${requestScope.errmsg}</div>
-        <div>${requestScope.errmsg}</div>
+        
+        
+       
+        <div><h1>${requestScope.errmsg}</h1></div>
     </center>
 </body>
 </html>

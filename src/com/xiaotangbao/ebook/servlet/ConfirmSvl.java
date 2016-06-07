@@ -87,8 +87,7 @@ public class ConfirmSvl extends HttpServlet {
 			for (Map<String, Object> item : books) {
 				int price = (int) item.get("price");
 				BigDecimal discount = (BigDecimal) item.get("discount");
-				int num = (int) item.get("booknum");
-				sum += (int) (price * discount.doubleValue() * num);
+				sum += (int) (price * discount.doubleValue()/10);
 			}
 			if (sum != Integer.parseInt(request.getParameter("money"))) {
 				throw new Exception("价格出现变动，请重新在购物车中查看哦。");

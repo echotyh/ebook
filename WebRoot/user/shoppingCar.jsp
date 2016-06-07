@@ -34,7 +34,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                <tr>
                 <td width="30%">商品详情</td>
                 <td width="20%">原价（元）</td>
-                <td width="35%">简介</td>
+                <td width="20%">折扣</td>
+                <td width="20%">简介</td>
                 <td>操作</td>
                </tr>
                
@@ -43,6 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	       <td height="80px"><img src="<%=basePath%>images/${book.bookid}.png " alt="商品图片" width="70" height="50" tag="商品展示"/><p>${book.bookname} </p></td>
         	       
                    <td><fmt:formatNumber value="${book.price / 100}" type="number" pattern="￥#,#00.00"/> </td>
+                   <td>${book.discount }折</td>
                    <td>${book.introduction }</td>
                    <td><a href="${pageContext.request.contextPath}/user/deletecartitem?book=${book.bookid}">删除</a>
                        <a href="${pageContext.request.contextPath}/servlet/ShoppingCarCollect?bookid=${book.bookid}">移入收藏</a>
@@ -53,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  <tr class="pre_check">
         	     <td colspan="4">
                       <div>
-            	         <p>共${booknum}件商品金额总计:${totalPrice} 元</p>
+            	         <p>共${booknum}件商品金额总计:<fmt:formatNumber value="${totalPrice / 100}" type="number" pattern="￥#,#00.00元"/></p>
                           <p>应付金额为:
                               <fmt:formatNumber value="${totalPrice / 100}" type="number" pattern="￥#,#00.00元"/>
                           </p>
