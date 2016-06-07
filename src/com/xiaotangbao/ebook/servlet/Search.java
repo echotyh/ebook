@@ -30,7 +30,9 @@ public class Search extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             request.setCharacterEncoding("utf-8");
+            response.setCharacterEncoding("utf-8");
             String query = request.getParameter("query");
+            query = new String(query.getBytes("iso-8859-1"), "utf-8");
             List<Map<String, Object>> bookList = new ArrayList<>();
             int page = 1;
             int pageSize = DEFAULT_PAGE_SIZE;
@@ -72,7 +74,7 @@ public class Search extends HttpServlet {
             queryParams.put("pageSize", pageSize);
             request.setAttribute("queryParams", queryParams);
             request.setAttribute("title", "查询 " + StringUtil.htmlEscape(query) + " 的结果");
-            request.setAttribute("url", request.getContextPath() + "/search?query=" + query + "&page=" + page + "&pageSize=" + pageSize);
+            request.setAttribute("url", request.getContextPath() + "/search?query=" + query + "&");
             request.getRequestDispatcher("/main/book_list.jsp").forward(request, response);
 
         } finally {
