@@ -97,6 +97,16 @@ public class UserDao extends BaseDao {
 	        }
 	        return user;    
 	}
+	//修改余额
+	public int updateExpend(int userid,int expend) throws Exception{
+		int result = 0;
+		Map<String, Object> conds = new HashMap<String, Object>();
+		conds.put("userid", userid);
+		Map<String, Object> fields = new HashMap<String, Object>();
+		fields.put("Expenditure", expend);
+		result = updateByConds(conds, fields);
+		return result;
+	}
 	
 	@Test
 	public void test() throws Exception{

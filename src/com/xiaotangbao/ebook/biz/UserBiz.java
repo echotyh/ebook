@@ -116,4 +116,15 @@ public class UserBiz {
         }
         return page;
     }
+    //修改余额
+    public int updateExpend(int userid,int expend) throws Exception{
+    	try{
+    		UserDao userdao = new UserDao();
+    		return userdao.updateExpend(userid, expend);
+    	}catch(Exception e){
+    		throw new Exception("小服有點累，請掃后再試哦。");
+    		
+    	}
+    	
+    }
 }
