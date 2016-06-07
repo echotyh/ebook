@@ -135,9 +135,13 @@ public class UserBiz {
     public List<Map<String,Object>> getBoughtBooks(int userid) throws Exception{
     	OrderDao orderdao = new OrderDao();
     	List<Integer> bookids = orderdao.getBoughtBooks(userid);
-    	BookBiz bookbiz = new BookBiz();
     	List<Map<String,Object>> books = new ArrayList<Map<String,Object>>();
     	Map<String,Object> book = new HashMap<String,Object>();
+    	if(bookids.isEmpty()){
+    		return books;
+    	}
+    	BookBiz bookbiz = new BookBiz();
+    	
     	for(int bookid : bookids){
     		 book = bookbiz.getBookInfoById(bookid);
     		 books.add(book);

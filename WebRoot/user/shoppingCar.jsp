@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <div id="shoppingCar">
-       <form action="ConfirmSvl" method="post">
+       <form action="<%=basePath %>servlet/ConfirmSvl" method="post">
            <table cellspacing="10px" >
                <tr>
                 <td width="30%">商品详情</td>
@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    <tr class="shop_content">
         	       <td height="80px"><img src="<%=basePath%>images/${book.bookid}.png " alt="商品图片" width="70" height="50" tag="商品展示"/><p>${book.bookname} </p></td>
         	       
-                   <td>${book.price} </td>
+                   <td><fmt:formatNumber value="${book.price / 100}" type="number" pattern="￥#,#00.00"/> </td>
                    <td>${book.introduction }</td>
                    <td><a href="${pageContext.request.contextPath}/user/deletecartitem?book=${book.bookid}">删除</a>
                        <a href="${pageContext.request.contextPath}/servlet/ShoppingCarCollect?bookid=${book.bookid}">移入收藏</a>

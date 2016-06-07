@@ -11,7 +11,7 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 
-<!DOCTYPE HTML>
+<!DOCTYPE HTML> 
 <html>
 <head>
     <base href="<%=basePath%>">

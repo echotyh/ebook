@@ -31,7 +31,7 @@ public class OrderDao extends BaseDao {
     	return result;
     }
     //获得某用户购买的bookid
-    public List getBoughtBooks(int userid) throws Exception{
+    public List<Integer> getBoughtBooks(int userid) throws Exception{
     	Map<String, Object> conds =new  HashMap<String,Object>();
     	conds.put("userid", userid);
     	conds.put("status", "y");

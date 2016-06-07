@@ -64,7 +64,7 @@
     </div>
     <div class="header_links">
         <a href="<%=basePath%>user/showshoppingcart">购物车</a>
-        <a href="#">我的图书</a>
+        <a href="<%=basePath%>servlet/GetBoughtBooks">我的图书</a>
         <a href="#">订单</a>
         <a href="#">收藏</a>
     </div>

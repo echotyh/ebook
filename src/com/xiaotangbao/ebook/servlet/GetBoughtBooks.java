@@ -43,6 +43,11 @@ public class GetBoughtBooks extends HttpServlet {
 		UserBiz userbiz = new UserBiz();
 		try {
 			List<Map<String,Object>> books = userbiz.getBoughtBooks(userid);
+			if(books.isEmpty()){
+				request.setAttribute("errmsg", "你还没有购买任何书籍哦。");
+				request.getRequestDispatcher("/main/error.jsp").forward(request,
+						response);		
+			}
 			request.setAttribute("books", books);
 			request.getRequestDispatcher("/user/mybooks.jsp").forward(
 					request, response);

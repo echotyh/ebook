@@ -53,9 +53,10 @@ public class LoginServlet extends HttpServlet {
 		}
 
 		if (user != null) {
-			request.getSession().setAttribute("user", user);
-			request.getRequestDispatcher("AllBookSvl").forward(request,
-					response);
+			
+			request.getSession(true).setAttribute("user", user);
+			request.getRequestDispatcher("/home").forward(
+					request, response);
 
 		} else {
 			request.setAttribute("msg", "用户名或密码错误，请重新登录或注册");
