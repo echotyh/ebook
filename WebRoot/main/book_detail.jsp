@@ -180,6 +180,17 @@
        </table>
     </div>
   </div>
+  <form action="<%=basePath%>servlet/CommentSvl" method="post">
+     <textarea rows="5" cols="50" name="comment" >请输入评论</textarea><input type="hidden" name="bookid" value="${item.bookid}">
+     <div>
+        <input type="radio" value="1" name="grade">1分
+        <input type="radio" value="2" name="grade">2分
+        <input type="radio" value="3" name="grade">3分
+        <input type="radio" value="4" name="grade">4分
+        <input type="radio" value="5" name="grade" checked="true">5分
+     </div>
+     <button>评论</button>
+  </form>
          
 </div> <!-- comment end -->
 

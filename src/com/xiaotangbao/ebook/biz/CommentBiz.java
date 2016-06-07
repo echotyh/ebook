@@ -1,5 +1,6 @@
 package com.xiaotangbao.ebook.biz;
 
+import com.xiaotangbao.ebook.dao.CommentDao;
 import com.xiaotangbao.ebook.util.DBConfig;
 import com.xiaotangbao.ebook.util.DBUtil;
 
@@ -33,6 +34,12 @@ public class CommentBiz {
                 " FROM `comment` c, `user` u WHERE c.userid=u.userid AND c.bookid=?";
         List<Map<String, Object>> commentList = dbUtil.query(sql, new Object[]{bookId});
         return commentList;
+    }
+    
+    public long addComment(int userid, int bookid, String comment,int grade,String time) throws Exception{
+    	CommentDao commentdao = new CommentDao();
+    	
+    	return commentdao.addComment(userid, bookid, comment, grade, time);
     }
 
 }
