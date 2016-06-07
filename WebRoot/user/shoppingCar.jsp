@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -36,11 +37,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                
                <c:forEach var="book" items="${books}">
                    <tr class="shop_content">
-        	       <td height="80px"><img src="images/${book.bookid}.png " alt="商品图片" width="70" height="50" tag="商品展示"/><p>${book.bookname} </p></td>
+        	       <td height="80px"><img src="<%=basePath%>images/${book.bookid}.png " alt="商品图片" width="70" height="50" tag="商品展示"/><p>${book.bookname} </p></td>
         	       
                    <td>${book.price} </td>
                    <td>${book.introduction }</td>
-                   <td><a href="${pageContext.request.contextPath}/servlet/ShoppingCarDelet?bookid=${book.bookid}">删除</a>
+                   <td><a href="${pageContext.request.contextPath}/user/deletecartitem?book=${book.bookid}">删除</a>
                        <a href="${pageContext.request.contextPath}/servlet/ShoppingCarCollect?bookid=${book.bookid}">移入收藏</a>
                    </td>
                    </tr>
@@ -49,8 +50,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  <tr class="pre_check">
         	     <td colspan="4">
                       <div>
-            	         <p>共${num}件商品金额总计:${money} 元</p>
-                          <p>应付金额为:${money} 元</p>
+            	         <p>共${booknum}件商品金额总计:${totalPrice} 元</p>
+                          <p>应付金额为:
+                              <fmt:formatNumber value="${totalPrice / 100}" type="number" pattern="￥#,#00.00元"/>
+                          </p>
+                          <input type="hidden" name="money" value="${totalPrice}" />
                          <button >结&nbsp;&nbsp;&nbsp;&nbsp;算</button>
                       </div>
                  </td>
