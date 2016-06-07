@@ -79,6 +79,9 @@
 </script>
 
 <body>
+
+    <jsp:include page="header.jsp"/>
+
     <%--<div>${requestScope.book}</div>--%>
     <c:set var="item" value="${requestScope.book}"/>
   
