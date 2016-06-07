@@ -171,7 +171,7 @@ public class BookBiz {
     public List<Map<String, Object>> getByPriceDesc(int offset, int limit) {
         String sql = "SELECT * FROM book b,bookseries s,booktype t,user u " +
                 "WHERE b.seriesid=s.bookseriesid AND b.authorid=u.userid AND b.typeid=t.typeid AND b.checked='y' AND b.saled='y'" +
-                " ORDER BY b.price DESC";
+                " ORDER BY b.price * b.discount ASC";
         if (offset < 0) {
             offset = 0;
         }
