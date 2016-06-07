@@ -25,6 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+
+  <jsp:include page="../main/header.jsp"/>
+
     <div id="shoppingCar">
        <form action="<%=basePath %>servlet/ConfirmSvl" method="post">
            <table cellspacing="10px" >
